@@ -1,0 +1,46 @@
+﻿{
+  "compilerOptions":
+  {
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict":                 true,
+    "baseUrl":                      "./",
+    "emitDecoratorMetadata":        true,
+    "experimentalDecorators":       true,
+    "importHelpers":                true,
+    "lib":
+    [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "module":            "es2015",
+    "moduleResolution":  "node",
+    "noEmit":            false,
+    "noEmitOnError":     true,
+    "noImplicitReturns": true,
+    "noImplicitThis":    true,
+    "noUnusedLocals":    true,
+    "paths":
+    {
+      "tslib":
+      [
+        "../node_modules/tslib/tslib.js"
+      ],
+      "*":
+      [
+        "*",
+        "./lib/es5/*",
+        "./lib/es6/*"
+      ]
+    },
+    "sourceMap":                      true,
+    //"strictNullChecks":               true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target":                         "es6",
+    "typeRoots":
+    [
+      "../node_modules/@types"
+    ]
+  },
+  "include": ["./"]
+}

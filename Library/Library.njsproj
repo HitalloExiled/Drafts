@@ -32,15 +32,27 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="src\%40surface\layout\grid\index.html" />
+    <Content Include="src\tsconfig-es5.json" />
+    <Content Include="src\tsconfig-es6.json" />
+    <Content Include="src\tsconfig.json" />
     <TypeScriptCompile Include="app.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
+    <TypeScriptCompile Include="src\%40surface\base-element.ts" />
+    <TypeScriptCompile Include="src\%40surface\layout\grid.ts" />
+    <TypeScriptCompile Include="src\%40surface\core\decorators.ts" />
+    <TypeScriptCompile Include="src\%40surface\core\extensions\custom-elements\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Scripts\" />
-    <Folder Include="Scripts\typings\" />
-    <Folder Include="Scripts\typings\node\" />
+    <Folder Include="src\" />
+    <Folder Include="src\%40surface\layout\" />
+    <Folder Include="src\%40surface\layout\grid\" />
+    <Folder Include="src\%40surface\core\" />
+    <Folder Include="src\%40surface\" />
+    <Folder Include="src\%40surface\core\extensions\" />
+    <Folder Include="src\%40surface\core\extensions\custom-elements\" />
+    <Folder Include="tasks\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

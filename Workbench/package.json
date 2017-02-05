@@ -1,0 +1,37 @@
+{
+  "name": "workbench",
+  "version": "0.0.0",
+  "description": "Workbench",
+  "main": "app.js",
+  "author": {
+    "name": "HitalloExiled"
+  },
+  "devDependencies": {
+    "@types/glob": "^5.0.30",
+    "@types/html-webpack-plugin": "^2.11.1",
+    "@types/node": "^7.0.4",
+    "@types/webpack": "^2.2.4",
+    "extract-loader": "^0.1.0",
+    "file-loader": "^0.10.0",
+    "glob": "^7.1.1",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.28.0",
+    "ts-loader": "^2.0.0",
+    "ts-node": "^2.0.0",
+    "typescript": "^2.1.5",
+    "webpack": "^2.2.0"
+  },
+  "dependencies": {
+    "tslib": "^1.5.0"
+  },
+  "scripts": {
+    "getLib": "npm run --prefix ../Library build && sh -c \"source='../Library/build/*'; target='./source/lib'; mkdir -p $target && cp -rfv $source $target\"",
+    "cleanLib": "rm -rfv ./www/lib",
+    "build": "rm -rf ./www && webpack --config ./source/webpack.config.ts"
+  },
+  "-vs-binding": {
+    "BeforeBuild": [
+      "getLib"
+    ]
+  }
+}

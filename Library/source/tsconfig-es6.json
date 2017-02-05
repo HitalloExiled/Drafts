@@ -1,0 +1,10 @@
+﻿{
+  "extends": "./tsconfig.json",
+  "compilerOptions":
+  {
+    "declaration": true,
+    "target":      "es6",
+    "noEmit":      false,
+    "outDir":      "../build/es6/@surface"
+  }
+}

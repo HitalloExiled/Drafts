@@ -1,4 +1,5 @@
 ﻿{
+  //"compileOnSave": true,
   "compilerOptions":
   {
     "allowSyntheticDefaultImports": true,
@@ -29,8 +30,8 @@
       "*":
       [
         "*",
-        "./lib/es5/*",
-        "./lib/es6/*"
+        "./libraries/es5/*",
+        "./libraries/es6/*"
       ]
     },
     "sourceMap":                      true,

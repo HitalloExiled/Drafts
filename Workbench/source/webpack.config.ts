@@ -1,7 +1,7 @@
-﻿import * as Webpack from "webpack";
-import * as Glob    from "glob";
-import * as Path    from "path";
-import * as HtmlWebPackPlugin from "html-webpack-plugin";
+﻿import Webpack from           "webpack";
+import Glob    from           "glob";
+import Path    from           "path";
+import HtmlWebPackPlugin from "html-webpack-plugin";
 
 let entries = {} as Webpack.Entry;
 let plugins = [] as Array<HtmlWebPackPlugin>;
@@ -20,8 +20,7 @@ matches.forEach
         {
             filename: `views/${view}/index.html`,
             template: Path.join(value, "index.html"),
-            chunks:   [name],
-            baseHref: "../www"
+            chunks:   [name]
         } as HtmlWebPackPlugin.Config;
 
         plugins.push(new HtmlWebPackPlugin(config));
@@ -45,8 +44,8 @@ let config =
         modules:
         [
             ".",
-            `${__dirname}/lib/es6/`,
-            `${__dirname}/lib/es5/`,
+            `${__dirname}/libraries/es6/`,
+            `${__dirname}/libraries/es5/`,
             "node_modules"
         ]
     } as Webpack.Resolve,
@@ -67,6 +66,10 @@ let config =
             //    test:   /\.html$/,
             //    loader: "extract-loader",
             //},
+            {
+                test: /\.scss$/,
+                loaders: ["style-loader", "css-loader", "sass-loader"]
+            },
             {
                 test:   /\.html$/,
                 loader: "html-loader",

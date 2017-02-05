@@ -7,6 +7,7 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b7cfe7c1-0e7b-4dfd-af2b-5b51b9719ab9</ProjectGuid>
@@ -34,17 +35,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="server\tsconfig.json" />
-    <Content Include="src\lib\es5\%40surface\components\base-element.js.map" />
-    <Content Include="src\lib\es5\%40surface\components\layout\grid.js.map" />
-    <Content Include="src\lib\es5\%40surface\core\decorators.js.map" />
-    <Content Include="src\lib\es6\%40surface\components\base-element.js.map" />
-    <Content Include="src\lib\es6\%40surface\components\layout\grid.js.map" />
-    <Content Include="src\lib\es6\%40surface\components\layout\grid\index.html" />
-    <Content Include="src\lib\es6\%40surface\core\decorators.js.map" />
-    <Content Include="src\tsconfig.json" />
-    <Content Include="src\views\home\index.html" />
-    <Content Include="src\views\login\index.html" />
-    <Content Include="src\views\register\index.html" />
+    <Content Include="source\libraries\es5\%40surface\components\base-element.js.map" />
+    <Content Include="source\libraries\es5\%40surface\components\layout\grid.js.map" />
+    <Content Include="source\libraries\es5\%40surface\core\decorators.js.map" />
+    <Content Include="source\libraries\es6\%40surface\components\base-element.js.map" />
+    <Content Include="source\libraries\es6\%40surface\components\layout\grid.js.map" />
+    <Content Include="source\libraries\es6\%40surface\components\layout\grid\index.html" />
+    <Content Include="source\libraries\es6\%40surface\core\decorators.js.map" />
+    <Content Include="source\styles\common.scss" />
+    <Content Include="source\tsconfig.json" />
+    <Content Include="source\views\home\index.scss" />
+    <Content Include="source\views\home\index.html" />
+    <Content Include="source\views\login\index.html" />
+    <Content Include="source\views\register\index.html" />
     <Content Include="www\views\home\index.html" />
     <Content Include="www\views\home\index.js.map" />
     <Content Include="www\views\login\index.html" />
@@ -54,41 +57,42 @@
     <TypeScriptCompile Include="server\start.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <TypeScriptCompile Include="src\lib\es5\%40surface\components\base-element.d.ts" />
-    <TypeScriptCompile Include="src\lib\es5\%40surface\components\layout\grid.d.ts" />
-    <TypeScriptCompile Include="src\lib\es5\%40surface\core\decorators.d.ts" />
-    <TypeScriptCompile Include="src\lib\es6\%40surface\components\base-element.d.ts" />
-    <TypeScriptCompile Include="src\lib\es6\%40surface\components\layout\grid.d.ts" />
-    <TypeScriptCompile Include="src\lib\es6\%40surface\core\decorators.d.ts" />
-    <TypeScriptCompile Include="src\lib\es6\%40surface\core\extensions\custom-elements\index.d.ts" />
-    <TypeScriptCompile Include="src\views\home\index.ts" />
-    <TypeScriptCompile Include="src\views\login\index.ts" />
-    <TypeScriptCompile Include="src\views\register\index.ts" />
-    <TypeScriptCompile Include="src\webpack.config.ts" />
+    <TypeScriptCompile Include="source\libraries\es5\%40surface\components\base-element.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es5\%40surface\components\layout\grid.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es5\%40surface\core\decorators.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es6\%40surface\components\base-element.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es6\%40surface\components\layout\grid.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es6\%40surface\core\decorators.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es6\%40surface\core\extensions\custom-elements\index.d.ts" />
+    <TypeScriptCompile Include="source\views\home\index.ts" />
+    <TypeScriptCompile Include="source\views\login\index.ts" />
+    <TypeScriptCompile Include="source\views\register\index.ts" />
+    <TypeScriptCompile Include="source\webpack.config.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="server\" />
-    <Folder Include="src\" />
-    <Folder Include="src\lib\es6\%40surface\components\layout\grid\" />
-    <Folder Include="src\lib\es6\%40surface\core\extensions\" />
-    <Folder Include="src\lib\es6\%40surface\core\extensions\custom-elements\" />
-    <Folder Include="src\views\" />
-    <Folder Include="src\views\home\" />
-    <Folder Include="src\views\login\" />
-    <Folder Include="src\views\register\" />
-    <Folder Include="src\lib\" />
-    <Folder Include="src\lib\es5\" />
-    <Folder Include="src\lib\es5\%40surface\" />
-    <Folder Include="src\lib\es5\%40surface\components\" />
-    <Folder Include="src\lib\es5\%40surface\components\layout\" />
-    <Folder Include="src\lib\es5\%40surface\core\" />
-    <Folder Include="src\lib\es5\components\" />
-    <Folder Include="src\lib\es5\components\layout\" />
-    <Folder Include="src\lib\es6\" />
-    <Folder Include="src\lib\es6\%40surface\" />
-    <Folder Include="src\lib\es6\%40surface\components\" />
-    <Folder Include="src\lib\es6\%40surface\components\layout\" />
-    <Folder Include="src\lib\es6\%40surface\core\" />
+    <Folder Include="source\" />
+    <Folder Include="source\libraries\es6\%40surface\components\layout\grid\" />
+    <Folder Include="source\libraries\es6\%40surface\core\extensions\" />
+    <Folder Include="source\libraries\es6\%40surface\core\extensions\custom-elements\" />
+    <Folder Include="source\styles\" />
+    <Folder Include="source\views\" />
+    <Folder Include="source\views\home\" />
+    <Folder Include="source\views\login\" />
+    <Folder Include="source\views\register\" />
+    <Folder Include="source\libraries\" />
+    <Folder Include="source\libraries\es5\" />
+    <Folder Include="source\libraries\es5\%40surface\" />
+    <Folder Include="source\libraries\es5\%40surface\components\" />
+    <Folder Include="source\libraries\es5\%40surface\components\layout\" />
+    <Folder Include="source\libraries\es5\%40surface\core\" />
+    <Folder Include="source\libraries\es5\components\" />
+    <Folder Include="source\libraries\es5\components\layout\" />
+    <Folder Include="source\libraries\es6\" />
+    <Folder Include="source\libraries\es6\%40surface\" />
+    <Folder Include="source\libraries\es6\%40surface\components\" />
+    <Folder Include="source\libraries\es6\%40surface\components\layout\" />
+    <Folder Include="source\libraries\es6\%40surface\core\" />
     <Folder Include="www\" />
     <Folder Include="www\views\" />
     <Folder Include="www\views\home\" />
@@ -97,12 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.js" />
-    <Compile Include="src\lib\es5\%40surface\components\base-element.js" />
-    <Compile Include="src\lib\es5\%40surface\components\layout\grid.js" />
-    <Compile Include="src\lib\es5\%40surface\core\decorators.js" />
-    <Compile Include="src\lib\es6\%40surface\components\base-element.js" />
-    <Compile Include="src\lib\es6\%40surface\components\layout\grid.js" />
-    <Compile Include="src\lib\es6\%40surface\core\decorators.js" />
+    <Compile Include="source\libraries\es5\%40surface\components\base-element.js" />
+    <Compile Include="source\libraries\es5\%40surface\components\layout\grid.js" />
+    <Compile Include="source\libraries\es5\%40surface\core\decorators.js" />
+    <Compile Include="source\libraries\es6\%40surface\components\base-element.js" />
+    <Compile Include="source\libraries\es6\%40surface\components\layout\grid.js" />
+    <Compile Include="source\libraries\es6\%40surface\core\decorators.js" />
     <Compile Include="www\views\home\index.js" />
     <Compile Include="www\views\login\index.js" />
     <Compile Include="www\views\register\index.js" />

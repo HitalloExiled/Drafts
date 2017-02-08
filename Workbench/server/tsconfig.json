@@ -1,5 +1,5 @@
 ﻿{
-  //"compileOnSave": true,
+  "compileOnSave": true,
   "compilerOptions":
   {
     "allowSyntheticDefaultImports": true,
@@ -8,15 +8,17 @@
     "emitDecoratorMetadata":        true,
     "experimentalDecorators":       true,
     "importHelpers":                true,
+    //"inlineSources":                true,
+    //"inlineSourceMap":              true,
     "lib":
     [
       "dom",
       "es2015",
       "es2016"
     ],
-    "module":                         "es2015",
+    "module":                         "commonjs",
     "moduleResolution":               "node",
-    "noEmit":                         true,
+    //"noEmit":                         true,
     "noEmitOnError":                  true,
     "noImplicitReturns":              true,
     "noImplicitThis":                 true,

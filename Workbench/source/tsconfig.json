@@ -7,6 +7,8 @@
     "baseUrl":                      "./",
     "emitDecoratorMetadata":        true,
     "experimentalDecorators":       true,
+    //"inlineSources": true,
+    //"inlineSourceMap":              true,
     "importHelpers":                true,
     "lib":
     [
@@ -16,7 +18,7 @@
     ],
     "module":            "es2015",
     "moduleResolution":  "node",
-    "noEmit":            false,
+    //"noEmit":            false,
     "noEmitOnError":     true,
     "noImplicitReturns": true,
     "noImplicitThis":    true,
@@ -37,7 +39,7 @@
     "sourceMap":                      true,
     //"strictNullChecks":               true,
     "suppressImplicitAnyIndexErrors": true,
-    "target":                         "es6",
+    "target":                         "es5",
     "typeRoots":
     [
       "../node_modules/@types"

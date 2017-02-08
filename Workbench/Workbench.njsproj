@@ -4,15 +4,16 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>Workbench</Name>
     <RootNamespace>Workbench</RootNamespace>
+    <ScriptArguments>--config ./source/webpack.config.ts</ScriptArguments>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b7cfe7c1-0e7b-4dfd-af2b-5b51b9719ab9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.js</StartupFile>
+    <StartupFile>server\start.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -25,7 +26,7 @@
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <EnableTypeScript>true</EnableTypeScript>
-    <StartWebBrowser>true</StartWebBrowser>
+    <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,81 +36,74 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="server\tsconfig.json" />
-    <Content Include="source\libraries\es5\%40surface\components\base-element.js.map" />
-    <Content Include="source\libraries\es5\%40surface\components\layout\grid.js.map" />
-    <Content Include="source\libraries\es5\%40surface\core\decorators.js.map" />
-    <Content Include="source\libraries\es6\%40surface\components\base-element.js.map" />
-    <Content Include="source\libraries\es6\%40surface\components\layout\grid.js.map" />
-    <Content Include="source\libraries\es6\%40surface\components\layout\grid\index.html" />
-    <Content Include="source\libraries\es6\%40surface\core\decorators.js.map" />
+    <Content Include="source\libraries\es5\%40surface\layout\grid\index.html" />
+    <Content Include="source\libraries\es6\%40surface\layout\grid\index.html" />
     <Content Include="source\styles\common.scss" />
     <Content Include="source\tsconfig.json" />
-    <Content Include="source\views\home\index.scss" />
     <Content Include="source\views\home\index.html" />
+    <Content Include="source\views\home\index.scss" />
     <Content Include="source\views\login\index.html" />
+    <Content Include="source\views\login\index.scss" />
     <Content Include="source\views\register\index.html" />
+    <Content Include="source\views\register\index.scss" />
+    <Content Include="source\template\index.html" />
+    <Content Include="source\template\index.scss" />
     <Content Include="www\views\home\index.html" />
-    <Content Include="www\views\home\index.js.map" />
-    <Content Include="www\views\login\index.html" />
-    <Content Include="www\views\login\index.js.map" />
-    <Content Include="www\views\register\index.html" />
-    <Content Include="www\views\register\index.js.map" />
     <TypeScriptCompile Include="server\start.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <TypeScriptCompile Include="source\libraries\es5\%40surface\components\base-element.d.ts" />
-    <TypeScriptCompile Include="source\libraries\es5\%40surface\components\layout\grid.d.ts" />
+    <TypeScriptCompile Include="source\dependencies\index.ts" />
+    <TypeScriptCompile Include="source\libraries\es5\%40surface\base-element.d.ts" />
     <TypeScriptCompile Include="source\libraries\es5\%40surface\core\decorators.d.ts" />
-    <TypeScriptCompile Include="source\libraries\es6\%40surface\components\base-element.d.ts" />
-    <TypeScriptCompile Include="source\libraries\es6\%40surface\components\layout\grid.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es5\%40surface\core\extensions\custom-elements\index.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es5\%40surface\layout\grid.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es6\%40surface\base-element.d.ts" />
     <TypeScriptCompile Include="source\libraries\es6\%40surface\core\decorators.d.ts" />
     <TypeScriptCompile Include="source\libraries\es6\%40surface\core\extensions\custom-elements\index.d.ts" />
+    <TypeScriptCompile Include="source\libraries\es6\%40surface\layout\grid.d.ts" />
     <TypeScriptCompile Include="source\views\home\index.ts" />
     <TypeScriptCompile Include="source\views\login\index.ts" />
     <TypeScriptCompile Include="source\views\register\index.ts" />
+    <TypeScriptCompile Include="source\template\index.ts" />
     <TypeScriptCompile Include="source\webpack.config.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="server\" />
     <Folder Include="source\" />
-    <Folder Include="source\libraries\es6\%40surface\components\layout\grid\" />
+    <Folder Include="source\libraries\" />
+    <Folder Include="source\libraries\es5\" />
+    <Folder Include="source\libraries\es5\%40surface\" />
+    <Folder Include="source\libraries\es5\%40surface\core\" />
+    <Folder Include="source\libraries\es5\%40surface\core\extensions\" />
+    <Folder Include="source\libraries\es5\%40surface\core\extensions\custom-elements\" />
+    <Folder Include="source\libraries\es5\%40surface\layout\" />
+    <Folder Include="source\libraries\es5\%40surface\layout\grid\" />
+    <Folder Include="source\libraries\es6\" />
+    <Folder Include="source\libraries\es6\%40surface\" />
+    <Folder Include="source\libraries\es6\%40surface\core\" />
     <Folder Include="source\libraries\es6\%40surface\core\extensions\" />
     <Folder Include="source\libraries\es6\%40surface\core\extensions\custom-elements\" />
+    <Folder Include="source\libraries\es6\%40surface\layout\" />
+    <Folder Include="source\libraries\es6\%40surface\layout\grid\" />
+    <Folder Include="source\dependencies\" />
     <Folder Include="source\styles\" />
     <Folder Include="source\views\" />
     <Folder Include="source\views\home\" />
     <Folder Include="source\views\login\" />
+    <Folder Include="source\template\" />
     <Folder Include="source\views\register\" />
-    <Folder Include="source\libraries\" />
-    <Folder Include="source\libraries\es5\" />
-    <Folder Include="source\libraries\es5\%40surface\" />
-    <Folder Include="source\libraries\es5\%40surface\components\" />
-    <Folder Include="source\libraries\es5\%40surface\components\layout\" />
-    <Folder Include="source\libraries\es5\%40surface\core\" />
-    <Folder Include="source\libraries\es5\components\" />
-    <Folder Include="source\libraries\es5\components\layout\" />
-    <Folder Include="source\libraries\es6\" />
-    <Folder Include="source\libraries\es6\%40surface\" />
-    <Folder Include="source\libraries\es6\%40surface\components\" />
-    <Folder Include="source\libraries\es6\%40surface\components\layout\" />
-    <Folder Include="source\libraries\es6\%40surface\core\" />
     <Folder Include="www\" />
     <Folder Include="www\views\" />
     <Folder Include="www\views\home\" />
-    <Folder Include="www\views\login\" />
-    <Folder Include="www\views\register\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.js" />
-    <Compile Include="source\libraries\es5\%40surface\components\base-element.js" />
-    <Compile Include="source\libraries\es5\%40surface\components\layout\grid.js" />
+    <Compile Include="source\libraries\es5\%40surface\base-element.js" />
     <Compile Include="source\libraries\es5\%40surface\core\decorators.js" />
-    <Compile Include="source\libraries\es6\%40surface\components\base-element.js" />
-    <Compile Include="source\libraries\es6\%40surface\components\layout\grid.js" />
+    <Compile Include="source\libraries\es5\%40surface\layout\grid.js" />
+    <Compile Include="source\libraries\es6\%40surface\base-element.js" />
     <Compile Include="source\libraries\es6\%40surface\core\decorators.js" />
-    <Compile Include="www\views\home\index.js" />
-    <Compile Include="www\views\login\index.js" />
-    <Compile Include="www\views\register\index.js" />
+    <Compile Include="source\libraries\es6\%40surface\layout\grid.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

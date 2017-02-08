@@ -27,7 +27,7 @@
         "../node_modules/tslib/tslib.js"
       ]
     },
-    "sourceMap":                      true,
+    //"sourceMap":                      true,
     "strictNullChecks":               true,
     "suppressImplicitAnyIndexErrors": true,
     "target":                         "es6",

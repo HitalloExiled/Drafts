@@ -6,7 +6,7 @@ var Grid = (function (_super) {
     tslib_1.__extends(Grid, _super);
     function Grid() {
         var _this = _super.call(this) || this;
-        _this.innerHTML = template;
+        _this._initializing = true;
         return _this;
     }
     Object.defineProperty(Grid.prototype, "rows", {
@@ -29,11 +29,18 @@ var Grid = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Grid.prototype.connectedCallback = function () {
+        if (this._initializing)
+            this.innerHTML = template;
+        this._initializing = false;
+    };
+    Grid.prototype.disconnectedCallback = function () { };
+    Grid.prototype.attributeChangedCallback = function (attributeName, oldValue, newValue, namespace) { };
+    Grid.prototype.adoptedCallback = function (oldDocument, newDocument) { };
     return Grid;
 }(BaseElement));
 Grid = tslib_1.__decorate([
-    component("sfc-layout-grid"),
+    component("surface-layout-grid"),
     tslib_1.__metadata("design:paramtypes", [])
 ], Grid);
 export { Grid };
-//# sourceMappingURL=grid.js.map

@@ -5,7 +5,7 @@ const template = require("grid/index.html");
 let Grid = class Grid extends BaseElement {
     constructor() {
         super();
-        this.innerHTML = template;
+        this._initializing = true;
     }
     get rows() {
         return this._row;
@@ -19,10 +19,17 @@ let Grid = class Grid extends BaseElement {
     set columns(value) {
         this._columns = value;
     }
+    connectedCallback() {
+        if (this._initializing)
+            this.innerHTML = template;
+        this._initializing = false;
+    }
+    disconnectedCallback() { }
+    attributeChangedCallback(attributeName, oldValue, newValue, namespace) { }
+    adoptedCallback(oldDocument, newDocument) { }
 };
 Grid = tslib_1.__decorate([
-    component("sfc-layout-grid"),
+    component("surface-layout-grid"),
     tslib_1.__metadata("design:paramtypes", [])
 ], Grid);
 export { Grid };
-//# sourceMappingURL=grid.js.map

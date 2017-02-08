@@ -7,4 +7,3 @@ var BaseElement = (function (_super) {
     return BaseElement;
 }(HTMLElement));
 export { BaseElement };
-//# sourceMappingURL=base-element.js.map

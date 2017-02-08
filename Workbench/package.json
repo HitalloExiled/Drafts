@@ -11,6 +11,8 @@
     "@types/html-webpack-plugin": "^2.11.1",
     "@types/node": "^7.0.4",
     "@types/webpack": "^2.2.4",
+    "css-loader": "^0.26.1",
+    "document-register-element": "^1.3.0",
     "extract-loader": "^0.1.0",
     "file-loader": "^0.10.0",
     "glob": "^7.1.1",
@@ -18,22 +20,23 @@
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.0",
     "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
     "ts-loader": "^2.0.0",
     "ts-node": "^2.0.0",
     "typescript": "^2.1.5",
+    "webcomponents.js": "^0.7.23",
     "webpack": "^2.2.0"
   },
   "dependencies": {
     "tslib": "^1.5.0"
   },
   "scripts": {
-    "getLib": "npm run --prefix ../Library build && sh -c \"source='../Library/build/*'; target='./source/lib'; mkdir -p $target && cp -rfv $source $target\"",
-    "cleanLib": "rm -rfv ./www/lib",
-    "build": "rm -rf ./www && webpack --config ./source/webpack.config.ts"
-  },
-  "-vs-binding": {
-    "BeforeBuild": [
-      "getLib"
-    ]
+    "getLib": "npm run --prefix ../Library build && sh -c \"source='../Library/build/*'; target='./source/libraries'; mkdir -p $target && cp -rfv $source $target\"",
+    "cleanLib": "rm -rfv ./source/libraries",
+    "build:development": "rm -rf ./www && webpack --config ./source/webpack.config.ts --colors",
+    "build:production": "rm -rf ./www && webpack --config ./source/webpack.config.ts --optimize-minimize",
+    "build-server": "tsc -p ./server/tsconfig.json",
+    "watch": "rm -rf ./www && webpack --config ./source/webpack.config.ts --watch",
+    "npm-rebuild": "npm rebuild"
   }
 }

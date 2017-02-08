@@ -3,9 +3,11 @@ import {component}   from "@surface/core/decorators"
 
 const template = require("grid/index.html") as string;
 
-@component("sfc-layout-grid")
+@component("surface-layout-grid")
 export class Grid extends BaseElement
 {
+    private _initializing = true;
+
     private _row: any;
     public get rows(): any
     {
@@ -31,6 +33,22 @@ export class Grid extends BaseElement
     public constructor()
     {
         super();
-        this.innerHTML = template;
     }
+
+    public connectedCallback()
+    {        
+        if (this._initializing)
+            this.innerHTML = template;
+
+        this._initializing = false;
+    }
+
+    public disconnectedCallback()
+    {}
+
+    public attributeChangedCallback(attributeName: string, oldValue: string, newValue: string, namespace: string)
+    {}
+
+    public adoptedCallback(oldDocument: Document, newDocument: Document)
+    {}
 }

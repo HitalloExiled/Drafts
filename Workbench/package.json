@@ -35,11 +35,11 @@
     "xregexp": "^3.1.1"
   },
   "dependencies": {
-    "surface-drafts": "0.0.0",
+    "surface-drafts": "0.0.1",
+    "surfacer": "0.0.0",
     "tslib": "^1.5.0"
   },
-  "scripts":
-  {
+  "scripts": {
     "getlib": "npm run --prefix ../Library build && mkdirp ./source/libraries && cpx ../Library/build/** ./source/libraries",
     "cleanlib": "rimraf ./source/libraries",
     "build:development": "rimraf ./www && webpack --config ./source/webpack.config.ts --colors --display-error-details",

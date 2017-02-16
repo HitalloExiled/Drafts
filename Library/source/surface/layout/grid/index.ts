@@ -1,7 +1,7 @@
-﻿import {CustomElement} from "@surface/custom-element";
-import {component}     from "@surface/core/decorators"
+﻿import {CustomElement} from "surface/custom-element";
+import {component}     from "surface/core/decorators"
 
-@component("surface-layout-grid", require("grid/index.html"))
+@component("surface-layout-grid", require("index.html"))
 export class Grid extends CustomElement
 {
     private _row: any;

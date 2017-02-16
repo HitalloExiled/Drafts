@@ -1,13 +1,9 @@
-﻿import {BaseElement} from "@surface/base-element";
-import {component}   from "@surface/core/decorators"
+﻿import {CustomElement} from "@surface/custom-element";
+import {component}     from "@surface/core/decorators"
 
-const template = require("grid/index.html") as string;
-
-@component("surface-layout-grid")
-export class Grid extends BaseElement
+@component("surface-layout-grid", require("grid/index.html"))
+export class Grid extends CustomElement
 {
-    private _initializing = true;
-
     private _row: any;
     public get rows(): any
     {
@@ -36,11 +32,8 @@ export class Grid extends BaseElement
     }
 
     public connectedCallback()
-    {        
-        if (this._initializing)
-            this.innerHTML = template;
-
-        this._initializing = false;
+    {
+        alert("post template");
     }
 
     public disconnectedCallback()

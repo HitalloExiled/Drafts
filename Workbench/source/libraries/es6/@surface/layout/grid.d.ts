@@ -1,6 +1,5 @@
-import { BaseElement } from "@surface/base-element";
-export declare class Grid extends BaseElement {
-    private _initializing;
+import { CustomElement } from "@surface/custom-element";
+export declare class Grid extends CustomElement {
     private _row;
     rows: any;
     private _columns;

@@ -1,11 +1,9 @@
 import * as tslib_1 from "tslib";
-import { BaseElement } from "@surface/base-element";
+import { CustomElement } from "@surface/custom-element";
 import { component } from "@surface/core/decorators";
-const template = require("grid/index.html");
-let Grid = class Grid extends BaseElement {
+let Grid = class Grid extends CustomElement {
     constructor() {
         super();
-        this._initializing = true;
     }
     get rows() {
         return this._row;
@@ -20,16 +18,14 @@ let Grid = class Grid extends BaseElement {
         this._columns = value;
     }
     connectedCallback() {
-        if (this._initializing)
-            this.innerHTML = template;
-        this._initializing = false;
+        alert("post template");
     }
     disconnectedCallback() { }
     attributeChangedCallback(attributeName, oldValue, newValue, namespace) { }
     adoptedCallback(oldDocument, newDocument) { }
 };
 Grid = tslib_1.__decorate([
-    component("surface-layout-grid"),
+    component("surface-layout-grid", require("grid/index.html")),
     tslib_1.__metadata("design:paramtypes", [])
 ], Grid);
 export { Grid };

@@ -1,13 +1,10 @@
 import * as tslib_1 from "tslib";
-import { BaseElement } from "@surface/base-element";
+import { CustomElement } from "@surface/custom-element";
 import { component } from "@surface/core/decorators";
-var template = require("grid/index.html");
 var Grid = (function (_super) {
     tslib_1.__extends(Grid, _super);
     function Grid() {
-        var _this = _super.call(this) || this;
-        _this._initializing = true;
-        return _this;
+        return _super.call(this) || this;
     }
     Object.defineProperty(Grid.prototype, "rows", {
         get: function () {
@@ -30,17 +27,15 @@ var Grid = (function (_super) {
         configurable: true
     });
     Grid.prototype.connectedCallback = function () {
-        if (this._initializing)
-            this.innerHTML = template;
-        this._initializing = false;
+        alert("post template");
     };
     Grid.prototype.disconnectedCallback = function () { };
     Grid.prototype.attributeChangedCallback = function (attributeName, oldValue, newValue, namespace) { };
     Grid.prototype.adoptedCallback = function (oldDocument, newDocument) { };
     return Grid;
-}(BaseElement));
+}(CustomElement));
 Grid = tslib_1.__decorate([
-    component("surface-layout-grid"),
+    component("surface-layout-grid", require("grid/index.html")),
     tslib_1.__metadata("design:paramtypes", [])
 ], Grid);
 export { Grid };

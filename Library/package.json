@@ -12,18 +12,18 @@
   "devDependencies": {
     "@types/node": "^7.0.4",
     "cpx": "^1.5.0",
+    "rimraf": "^2.5.4",
     "ts-loader": "^2.0.0",
     "ts-node": "^2.0.0",
     "typescript": "^2.1.5",
     "webpack": "^2.2.0"
   },
-  "scripts":
-  {
+  "scripts": {
     "build": "npm run clean && tsc -p ./source/tsconfig-es5.json | tsc -p ./source/tsconfig-es6.json && npm run copy-files",
-    "clean": "rm -rf ./build",
+    "clean": "rimraf ./build",
     "watch-es5": "tsc -p ./source/tsconfig-es5.json -watch",
     "watch-es6": "tsc -p ./source/tsconfig-es6.json -watch",
     "watch-all": "npm run watch-es5 | npm run watch-es6",
-    "copy-files": "cpx ./source/**/*.{d.ts,html,css} ./build/es5 && cpx ./source/**/*.{d.ts,html,css} ./build/es6"
+    "copy-files": "cpx ./source/**/*.{d.ts,html,scss} ./build/es5 && cpx ./source/**/*.{d.ts,html,css} ./build/es6"
   }
 }

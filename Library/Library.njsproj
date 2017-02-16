@@ -8,7 +8,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
-	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4a7b756a-3c95-44e6-a3d3-3a71b82fe608</ProjectGuid>
     <ProjectHome>.</ProjectHome>
@@ -40,10 +40,11 @@
     <TypeScriptCompile Include="app.ts" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <TypeScriptCompile Include="source\%40surface\base-element.ts" />
+    <TypeScriptCompile Include="source\%40surface\core\types.d.ts" />
+    <TypeScriptCompile Include="source\%40surface\custom-element.ts" />
     <TypeScriptCompile Include="source\%40surface\layout\grid.ts" />
     <TypeScriptCompile Include="source\%40surface\core\decorators.ts" />
-    <TypeScriptCompile Include="source\%40surface\core\extensions\custom-elements\index.d.ts" />
+    <TypeScriptCompile Include="source\%40surface\core\extensions\custom-element-registry\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="source\" />
@@ -52,7 +53,7 @@
     <Folder Include="source\%40surface\core\" />
     <Folder Include="source\%40surface\" />
     <Folder Include="source\%40surface\core\extensions\" />
-    <Folder Include="source\%40surface\core\extensions\custom-elements\" />
+    <Folder Include="source\%40surface\core\extensions\custom-element-registry\" />
     <Folder Include="tasks\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

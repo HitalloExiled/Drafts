@@ -45,5 +45,6 @@
       "../node_modules/@types"
     ]
   },
-  "include": ["./"]
+  "include": ["./"],
+  "exclude": ["./libraries/es6"]
 }

@@ -1,12 +1,25 @@
 import "dependencies";
-import "index.html";
-import "index.scss";
-
+import {view} from "codebase/decorators";
 import {Grid} from "@surface/layout/grid";
 
-let grid = new Grid();
-grid.id = "grid";
+const index = require("index.html");
+const css   = require("index.scss");
 
-document.body.appendChild(grid);
+@view("view-home")
+class Index
+{
+    public template = null as Nullable<HTMLTemplateElement>;
+    constructor()
+    {
+        let grid = new Grid();
+        grid.id = "grid";
 
-alert("Hello World!!!, Mother Fucker!!!");
+        document.body.appendChild(grid);
+
+        alert("Hello World!!!, Mother Fucker!!!");
+        alert(index);
+        alert(css);
+    }
+}
+
+new Index();

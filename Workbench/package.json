@@ -20,7 +20,7 @@
     "glob": "^7.1.1",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.28.0",
-    "mkdirp": "0.0.7",
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.5.0",
     "rimraf": "^2.5.4",
     "rimraf-glob": "0.0.1-security",
@@ -35,9 +35,11 @@
     "xregexp": "^3.1.1"
   },
   "dependencies": {
+    "surface-drafts": "0.0.0",
     "tslib": "^1.5.0"
   },
-  "scripts": {
+  "scripts":
+  {
     "getlib": "npm run --prefix ../Library build && mkdirp ./source/libraries && cpx ../Library/build/** ./source/libraries",
     "cleanlib": "rimraf ./source/libraries",
     "build:development": "rimraf ./www && webpack --config ./source/webpack.config.ts --colors --display-error-details",

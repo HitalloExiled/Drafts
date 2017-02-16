@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
-import { CustomElement } from "@surface/custom-element";
-import { component } from "@surface/core/decorators";
+import { CustomElement } from "surface/custom-element";
+import { component } from "surface/core/decorators";
 var Grid = (function (_super) {
     tslib_1.__extends(Grid, _super);
     function Grid() {
@@ -35,7 +35,7 @@ var Grid = (function (_super) {
     return Grid;
 }(CustomElement));
 Grid = tslib_1.__decorate([
-    component("surface-layout-grid", require("grid/index.html")),
+    component("surface-layout-grid", require("index.html")),
     tslib_1.__metadata("design:paramtypes", [])
 ], Grid);
 export { Grid };

@@ -1,6 +1,6 @@
 import * as tslib_1 from "tslib";
-import { CustomElement } from "surface/custom-element";
-import { component } from "surface/core/decorators";
+import { CustomElement } from "surfacer/custom-element";
+import { component } from "surfacer/core/decorators";
 let Grid = class Grid extends CustomElement {
     constructor() {
         super();

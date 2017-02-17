@@ -65,7 +65,6 @@
     <Folder Include="server\" />
     <Folder Include="source\" />
     <Folder Include="source\dependencies\" />
-    <Folder Include="source\libraries\" />
     <Folder Include="source\codebase\" />
     <Folder Include="source\resources\" />
     <Folder Include="source\styles\" />

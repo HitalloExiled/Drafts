@@ -1,4 +1,4 @@
-import { CustomElement } from "surface/custom-element";
+import { CustomElement } from "surfacer/custom-element";
 export declare class Grid extends CustomElement {
     private _row;
     rows: any;

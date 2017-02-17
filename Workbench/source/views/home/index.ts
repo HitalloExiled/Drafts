@@ -1,6 +1,7 @@
 import "dependencies";
 import {view} from "codebase/decorators";
-import {Grid} from "@surface/layout/grid";
+import {Grid} from "surfacer/layout/grid";
+import * as surface from "surfacer-drafts";
 
 const index = require("index.html");
 const css   = require("index.scss");
@@ -19,6 +20,7 @@ class Index
         alert("Hello World!!!, Mother Fucker!!!");
         alert(index);
         alert(css);
+        surface
     }
 }
 

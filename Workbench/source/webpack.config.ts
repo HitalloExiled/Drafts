@@ -113,7 +113,8 @@ let config =
             ".",
             `${__dirname}/libraries/es5/`,
             `${__dirname}/libraries/es6/`,
-            "node_modules"
+            "node_modules",
+            "../node_modules/surfacer-drafts/build/es5/"
         ]
     } as Webpack.Resolve,
     module:

@@ -1,6 +1,6 @@
 {
   "name": "surfacer-drafts",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Library",
   "main": "./build/es5/index.js",
   "author": "HitalloExiled",

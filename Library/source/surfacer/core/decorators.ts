@@ -1,4 +1,4 @@
-﻿import {CustomElement} from "surface/custom-element"
+﻿import {CustomElement} from "surfacer/custom-element"
 
 export function component(name: string, template: string, options?: CustomElementRegistry.Options): ClassDecorator
 {

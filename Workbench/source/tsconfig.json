@@ -25,15 +25,16 @@
     "noUnusedLocals":    true,
     "paths":
     {
-      "tslib":
-      [
-        "../node_modules/tslib/tslib.js"
-      ],
       "*":
       [
         "*",
-        "./libraries/es5/*",
-        "./libraries/es6/*"
+        //"./libraries/es5/*",
+        //"./libraries/es6/*",
+        "../node_modules/surfacer-drafts/build/es5/*"
+      ],
+      "tslib":
+      [
+        "../node_modules/tslib/tslib.js"
       ]
     },
     "sourceMap":                      true,
@@ -45,6 +46,10 @@
       "../node_modules/@types"
     ]
   },
-  "include": ["./"],
+  "include":
+  [
+    "./",
+    "../node_modules/surfacer-drafts"
+  ],
   "exclude": ["./libraries/es6"]
 }

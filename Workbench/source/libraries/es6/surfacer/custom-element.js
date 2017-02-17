@@ -1,9 +1,16 @@
 export class CustomElement extends HTMLElement {
-    constructor() {
-        super(...arguments);
-        this._initialized = false;
+    get template() {
+        return this._template;
     }
-    applyTemplate(template) {
-        this.appendChild(template.content.cloneNode(true));
+    set template(value) {
+        this._template = value;
+    }
+    constructor() {
+        super();
+        this.applyTemplate();
+    }
+    applyTemplate() {
+        if (this._template)
+            this.appendChild(document.importNode(this._template.content, true));
     }
 }

@@ -28,9 +28,9 @@
       "*":
       [
         "*",
-        //"./libraries/es5/*",
+        "./libraries/es5/*"//,
         //"./libraries/es6/*",
-        "../node_modules/surfacer-drafts/build/es5/*"
+        //"../node_modules/surfacer-drafts/build/es5/*"
       ],
       "tslib":
       [
@@ -48,8 +48,8 @@
   },
   "include":
   [
-    "./",
-    "../node_modules/surfacer-drafts"
+    "./"//,
+    //"../node_modules/surfacer-drafts"
   ],
   "exclude": ["./libraries/es6"]
 }

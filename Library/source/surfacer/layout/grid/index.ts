@@ -32,16 +32,14 @@ export class Grid extends CustomElement
     }
 
     public connectedCallback()
-    {
-        alert("post template");
-    }
+    { }
 
     public disconnectedCallback()
-    {}
+    { }
 
     public attributeChangedCallback(attributeName: string, oldValue: string, newValue: string, namespace: string)
-    {}
+    { }
 
     public adoptedCallback(oldDocument: Document, newDocument: Document)
-    {}
+    { }
 }

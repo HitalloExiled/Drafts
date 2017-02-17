@@ -17,9 +17,7 @@ let Grid = class Grid extends CustomElement {
     set columns(value) {
         this._columns = value;
     }
-    connectedCallback() {
-        alert("post template");
-    }
+    connectedCallback() { }
     disconnectedCallback() { }
     attributeChangedCallback(attributeName, oldValue, newValue, namespace) { }
     adoptedCallback(oldDocument, newDocument) { }

@@ -2,28 +2,12 @@
 
 export function component(name: string, template: string, options?: CustomElementRegistry.Options): ClassDecorator
 {
-    return <T extends Constructor<CustomElement>>(target: T) =>
-    {   
-        let connectedCallback = target.prototype.connectedCallback;
-
-        target.prototype.connectedCallback = function (this: CustomElement)
-        {
-            //if (initializing)
-            //{
-                let element = new DOMParser()
-                    .parseFromString(template, "text/html")
-                    .querySelector("template") as HTMLTemplateElement;
-
-                this.applyTemplate(element);
-            //}
-
-            //initializing = false;
-
-            connectedCallback.apply(this);
-        }
-
-        //return instance;
-
+    return (target: Constructor<CustomElement>) =>
+    {
+        target.prototype.template = new DOMParser()
+            .parseFromString(template, "text/html")
+            .querySelector("template") as HTMLTemplateElement;
+            
         window.customElements.define(name, target, options);
     }
 }

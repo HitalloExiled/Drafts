@@ -1,4 +1,4 @@
-﻿declare interface Constructor<T> extends Function
+declare interface Constructor<T> extends Function
 {
     new():     T;
     prototype: T;

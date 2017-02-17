@@ -26,9 +26,7 @@ var Grid = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Grid.prototype.connectedCallback = function () {
-        alert("post template");
-    };
+    Grid.prototype.connectedCallback = function () { };
     Grid.prototype.disconnectedCallback = function () { };
     Grid.prototype.attributeChangedCallback = function (attributeName, oldValue, newValue, namespace) { };
     Grid.prototype.adoptedCallback = function (oldDocument, newDocument) { };

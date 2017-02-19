@@ -1,8 +1,7 @@
 {
   "name": "surfacer-drafts",
   "version": "0.0.4",
-  "description": "Library",
-  "main": "./build/es5/index.js",
+  "description": "Surfacer Library",
   "author": "HitalloExiled",
   "devDependencies": {
     "@types/node": "^7.0.4",
@@ -16,14 +15,16 @@
   "dependencies": {
     "webpack": "^2.2.0"
   },
-  "scripts": {
+  "scripts":
+  {
     "prepublish": "npm run build",
-    "build": "npm run clean && tsc -p ./source/tsconfig-es5.json | tsc -p ./source/tsconfig-es6.json && npm run copy-files",
+    "build": "npm run clean & tsc -p ./configs/tsconfig-es2015.json & ./configs/tsconfig-es2015.json --target es5 & npm run build:commonjs & npm run copy-files",
+    "build:commonjs": "tsc -p ./configs/tsconfig-commonjs.json & tsc -p ./configs/tsconfig-commonjs.json --target es5",
     "clean": "rimraf ./build",
-    "watch-es5": "tsc -p ./source/tsconfig-es5.json -watch",
-    "watch-es6": "tsc -p ./source/tsconfig-es6.json -watch",
+    "watch-es5": "tsc -p ./configs/tsconfig-es2015.json -watch",
+    "watch-es6": "tsc -p ./configs/tsconfig-es2015.json -watch --target es5",
     "watch-all": "npm run watch-es5 | npm run watch-es6",
-    "copy-files": "cpx ./source/**/*.{d.ts,html,scss} ./build/es5 && cpx ./source/**/*.{d.ts,html,css} ./build/es6"
+    "copy-files": "cpx ./source/**/*.{d.ts,html,css} ./build/surfacer-es5 && cpx ./source/**/*.{d.ts,html,css} ./build"
   },
   "repository": {
     "type": "git",

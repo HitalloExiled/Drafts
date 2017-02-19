@@ -1,14 +1,19 @@
 import "dependencies";
-import "index.html";
-import "index.scss";
 
 import {Grid} from "surfacer/layout/grid";
 
-window.customElements.whenDefined("surface-layout-grid").then(() => alert("grid created"));
+class Home
+{
+    constructor()
+    {
+        let grid = new Grid();
+        grid.id = "grid";
 
-let grid = new Grid();
-grid.id = "grid";
+        document.body.appendChild(grid);
 
-document.body.appendChild(grid);
+        alert("Hello World!!!, Mother Fucker!!!");
+        window.customElements.whenDefined("surface-layout-grid").then(() => alert("grid created"));
+    }
+}
 
-alert("Hello World!!!, Mother Fucker!!!");
+export default new Home();

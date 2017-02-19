@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions":
+  {
+    "declaration": true,
+    "module":      "commonjs",
+    "noEmit":      false,
+    "outDir":      "../build/surfacer-inject-view-plugin",
+    "target":      "es5"
+  },
+  "include": ["../source/plugins"],
+  "exclude": ["../node_modules", "build"]
+}

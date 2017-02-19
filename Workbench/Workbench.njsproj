@@ -69,6 +69,7 @@
     <Folder Include="source\template\" />
     <Folder Include="source\views\" />
     <Folder Include="source\views\home\" />
+    <Folder Include="views\" />
     <Folder Include="views\login\" />
     <Folder Include="views\register\" />
   </ItemGroup>

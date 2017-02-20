@@ -8,14 +8,22 @@
         {
             "type":    "node",
             "request": "launch",
-            "name":    "Launch Program",
+            "name":    "Launch Server",
+            "program": "${workspaceRoot}\\Server\\start.js",            
+            "cwd":     "${workspaceRoot}\\Server",
+            "outFiles": []
+        },
+        {
+            "type":    "node",
+            "request": "launch",
+            "name":    "Launch Workbench",
             "program": "${workspaceRoot}\\Workbench\\node_modules\\webpack\\bin\\webpack.js",
             "args":
             [
                 "--config",
-                "${workspaceRoot}\\Workbench\\source\\webpack.config.ts"
+                "${workspaceRoot}\\Workbench\\webpack.config.ts"
             ],
-            "cwd":     "${workspaceRoot}",
+            "cwd":     "${workspaceRoot}\\Workbench",
             "outFiles": []
         },
         {

@@ -1,0 +1,8 @@
+{
+  "extends": "./es2015.json",
+  "compilerOptions":
+  {
+    "outDir": "../build/surfacer-es5/surfacer",
+    "target": "es5"
+  }
+}

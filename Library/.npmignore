@@ -1,4 +1,7 @@
 ﻿/bin
 /obj
 /source
+/configs
+/tasks
+/tests
 Library.njsproj

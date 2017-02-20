@@ -14,7 +14,6 @@
       "es2016",
       "es2017"
     ],
-    "module":                         "es2015",
     "moduleResolution":               "node",
     "noEmit":                         true,
     "noEmitOnError":                  true,

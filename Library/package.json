@@ -17,14 +17,10 @@
   },
   "scripts":
   {
-    "prepublish": "npm run build",
-    "build": "npm run clean & tsc -p ./configs/tsconfig-es2015.json & ./configs/tsconfig-es2015.json --target es5 & npm run build:commonjs & npm run copy-files",
-    "build:commonjs": "tsc -p ./configs/tsconfig-commonjs.json & tsc -p ./configs/tsconfig-commonjs.json --target es5",
-    "clean": "rimraf ./build",
-    "watch-es5": "tsc -p ./configs/tsconfig-es2015.json -watch",
-    "watch-es6": "tsc -p ./configs/tsconfig-es2015.json -watch --target es5",
-    "watch-all": "npm run watch-es5 | npm run watch-es6",
-    "copy-files": "cpx ./source/**/*.{d.ts,html,css} ./build/surfacer-es5 && cpx ./source/**/*.{d.ts,html,css} ./build"
+    "prepublish": "npm run task:build",
+    "task:build": "ts-node ./tasks/build.ts",
+    "task:watch": "ts-node ./tasks/build.ts --watch",
+    "clean": "rimraf ./build"
   },
   "repository": {
     "type": "git",

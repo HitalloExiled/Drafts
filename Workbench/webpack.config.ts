@@ -5,9 +5,11 @@ import * as Path    from "path";
 import devConfig  from "./configs/webpack.config-development";
 import prodConfig from "./configs/webpack.config-production";
 
-import injectViewPlugin from "surfacer/plugins/inject-view-plugin";
+import injectViewPlugin from "surfacer-inject-view-plugin";
 
-console.log(`Starting build in ${process.env["NODE_ENV"].trim() == "DEV" ? "development" : "production"} mode.`);
+const ENV = process.env["NODE_ENV"] && (process.env["NODE_ENV"] as string).trim();
+
+console.log(`Starting build in ${ENV == "DEV" ? "development" : "production"} mode.`);
 
 let entries = {} as Webpack.Entry;
 let matches = new Glob.GlobSync(`${__dirname}/source/views/*`).found;
@@ -88,10 +90,7 @@ let config =
     } as Webpack.Module
 } as Webpack.Configuration;
 
-let envConfig =
-    (process.env["NODE_ENV"] as string).trim() == "DEV" ?
-        devConfig :
-        prodConfig
+let envConfig = ENV == "DEV" ? devConfig : prodConfig;
 
 envConfig.plugins = envConfig.plugins || [];
 envConfig.plugins.push(new injectViewPlugin())

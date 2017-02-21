@@ -6,7 +6,7 @@
     "baseUrl":                      "./",
     "emitDecoratorMetadata":        true,
     "experimentalDecorators":       true,
-    "importHelpers":                true,
+    "importHelpers":                true,    
     "noEmitHelpers":                true,
     "lib":
     [
@@ -22,7 +22,7 @@
     "noUnusedLocals":                 true,
     "paths":
     {
-      "surfacer/*": ["node_modules/surfacer-es5/*"]
+      "*": ["*", "source", "node_modules/surfacer-es5/*"]
     },
     "sourceMap":                      true,
     "strictNullChecks":               true,

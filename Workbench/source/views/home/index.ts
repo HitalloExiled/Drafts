@@ -7,11 +7,11 @@ class Home
     constructor()
     {
         let grid = new Grid();
-        grid.id = "grid";
+        grid.id = "mains-grid";
 
         document.body.appendChild(grid);
 
-        alert("Hello World!!!, Mother Fucker!!!");
+        alert("Hello World!!!!, Mother Fucker!!!");
         window.customElements.whenDefined("surface-layout-grid").then(() => alert("grid created"));
     }
 }

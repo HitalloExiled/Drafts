@@ -1,6 +1,7 @@
 ﻿import * as Webpack from "webpack";
 import * as Glob    from "glob";
 import * as Path    from "path";
+import * as FS      from "fs";
 
 import devConfig  from "./configs/webpack.config-development";
 import prodConfig from "./configs/webpack.config-production";
@@ -22,7 +23,9 @@ matches.forEach
         let view  = parts[parts.length - 1];
 
         let name = `views/${view}/index`
-        entries[name] = Path.join(value, "index.ts");
+        let path = Path.join(value, "index.ts");
+        if (FS.exists(path))
+            entries[name] = path;
     }
 );
 

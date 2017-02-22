@@ -3,20 +3,20 @@
   "version": "0.0.4",
   "description": "Surfacer Library",
   "author": "HitalloExiled",
-  "devDependencies": {
+  "devDependencies":
+  {
     "@types/node": "^7.0.4",
     "cpx": "^1.5.0",
     "rimraf": "^2.5.4",
-    "ts-loader": "^2.0.0",
-    "ts-node": "^2.0.0",
     "tslib": "^1.5.0",
+    "ts-loader": "^2.0.0",
+    "ts-node": "^2.1.0",
     "typescript": "^2.2.0"
   },
   "dependencies": {
     "webpack": "^2.2.0"
   },
-  "scripts":
-  {
+  "scripts": {
     "prepublish": "npm run task:build",
     "task:build": "ts-node ./tasks/build.ts",
     "task:watch": "ts-node ./tasks/build.ts --watch",

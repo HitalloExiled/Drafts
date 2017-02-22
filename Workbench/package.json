@@ -37,8 +37,7 @@
   "dependencies": {
     "tslib": "^1.5.0"
   },
-  "scripts":
-  {
+  "scripts": {
     "task:build:dev": "ts-node ./tasks/build.ts --dev",
     "task:watch:dev": "ts-node ./tasks/build.ts --dev --watch",
     "task:build:prod": "ts-node ./tasks/build.ts --prod",

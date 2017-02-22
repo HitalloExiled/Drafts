@@ -1,13 +1,16 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "./base.json",
   "compilerOptions":
   {
-    "declaration": true,
-    "module":      "es2015",
-    "noEmit":      false,
-    "outDir":      "../build/surfacer",
-    "target":      "es6"
+    "baseUrl": "../source/es2015",
+    "lib":
+    [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "module": "es2015",
+    "outDir": "../build/surfacer"
   },
-  "include": ["../source/surfacer"],
-  "exclude": ["../node_modules", "build"]
+  "include": ["../source/es2015"]
 }

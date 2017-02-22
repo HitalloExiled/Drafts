@@ -1,0 +1,7 @@
+﻿{
+  "extends": "../../configs/es2015.json",
+  "compilerOptions":
+  {
+    "baseUrl": "./"
+  }
+}

@@ -1,0 +1,24 @@
+﻿{
+  "compilerOptions":
+  {
+    "allowSyntheticDefaultImports":   true,
+    "alwaysStrict":                   true,
+    "declaration":                    true,
+    "emitDecoratorMetadata":          true,
+    "experimentalDecorators":         true,
+    "importHelpers":                  true, 
+    "moduleResolution":               "node",
+    "noEmitOnError":                  true,
+    "noImplicitReturns":              true,
+    "noImplicitThis":                 true,
+    "noUnusedLocals":                 true,
+    "strictNullChecks":               true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target":                         "es6",
+    "typeRoots":
+    [
+      "../node_modules/@types"
+    ]
+  },
+  "exclude": ["../node_modules", "../build"]
+}

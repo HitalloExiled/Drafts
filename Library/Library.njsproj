@@ -19,7 +19,7 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <EnableTypeScript>true</EnableTypeScript>
@@ -33,13 +33,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".npmignore" />
-    <Content Include="configs\commonjs-es5.json" />
-    <Content Include="configs\commonjs.json" />
-    <Content Include="configs\es2015-es5.json" />
-    <Content Include="configs\es2015.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
-    <Content Include="configs\base.json" />
+    <Content Include="configs\tsconfig-base.json" />
     <Content Include="source\commonjs\tsconfig.json" />
     <Content Include="source\es2015\surfacer\layout\grid\index.html" />
     <Content Include="source\es2015\tsconfig.json" />
@@ -49,6 +45,7 @@
   <ItemGroup>
     <Folder Include="configs\" />
     <Folder Include="configs\" />
+    <Folder Include="%40types\" />
     <Folder Include="source\" />
     <Folder Include="source\commonjs\" />
     <Folder Include="source\commonjs\plugins\" />

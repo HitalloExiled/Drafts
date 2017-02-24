@@ -1,8 +1,0 @@
-{
-  "extends": "./commonjs.json",
-  "compilerOptions":
-  {
-    "outDir": "../build/surfacer-inject-view-plugin-es5",
-    "target": "es5"
-  }
-}

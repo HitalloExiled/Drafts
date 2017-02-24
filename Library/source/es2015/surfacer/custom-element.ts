@@ -15,6 +15,7 @@
     constructor()
     {
         super();
+
         this.applyTemplate();
     }
 

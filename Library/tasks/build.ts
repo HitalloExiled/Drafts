@@ -1,50 +1,97 @@
 import * as ChildProcess from "child_process";
+import * as Path         from "path";
 
-const WATCH = "--watch";
+let build  = Path.resolve(__dirname, "../build");
+let source = Path.resolve(__dirname, "../source");
 
-let switchers  = process.argv.slice(2);
-let isWatching = switchers.filter(x => x == WATCH).length > 0;
+let paths =
+{
+    es2015:
+    {
+        in:     Path.join(source, "es2015"),
+        out:    Path.join(build,  "surfacer"),
+        outES5: Path.join(build,  "surfacer-es5"),
+    },
+    commonjs:
+    {
+        in:  Path.join(source, "commonjs"),
+        out: Path.join(build,  "surfacer-plugins"),
+    }
+};
 
-let configs =
-[
-    "es2015.json",
-    "es2015-es5.json",
-    "commonjs.json",
-    "commonjs-es5.json"
-];
+function execute()
+{
+    try
+    {
+        let isWatching = process.argv.filter(x => x == "--watch").length > 0;
 
-if (isWatching)
-    console.log(isWatching ? "Watching..." : "Building...");
+        clearBuild();
+        compileTS(isWatching);
+        copyStaticFiles(isWatching);
+    }
+    catch (error)
+    {
+        throw error;
+    }
+};
 
-ChildProcess.exec("rimraf ./build")
-    .on("exit", code => console.log(`Clear ./build directory... ${code == 0 ? "ok" : `finished with code ${code}`}`));
-
-let log = (step: string, process: ChildProcess.ChildProcess) =>
+function log (step: string, process: ChildProcess.ChildProcess): void
 {
     process.stdout.on("data", data => console.log(`${step} - ${data}`));
     process.stderr.on("data", data => console.log(`${step} - ${data}`));
     process.on("exit", code => console.log(`${step} - ${code == 0 ? "ok" : `finished with code ${code}`}`));
 };
-configs.forEach
-(
-    config => log
-    (
-        `Compiling ${config}`,
-        ChildProcess.exec(`tsc -p ./configs/${config} ${switchers.join(" ")}`)
-    )
-);
 
-let outputs =
-[
-    "",
-    "surfacer-es5"
-];
+function clearBuild()
+{
+    log("Clear build directory...", ChildProcess.exec(`rimraf ${build}`));
+}
 
-outputs.forEach
-(
-    output => log
+function compileTS(isWatching: boolean)
+{
+    let switchers: Array<string> = [];
+
+    if (isWatching)
+    {
+        console.log(isWatching ? "Watching..." : "Building...");
+        switchers.push("--watch");
+    }
+    switchers.push("--noEmit");
+    switchers.push("false");
+    switchers.push("--declaration");
+    switchers.push("--sourceMap");
+    switchers.push("false");
+
+    let compile = (step: string, tsconfig: string, options: Array<string>) =>
+        log(step, ChildProcess.exec(`tsc -p ${tsconfig} ${options.join(" ")}`));
+   
+    let es2015 = Path.join(paths.es2015.in, "tsconfig.json");        
+    compile("Compiling es2015 modules", es2015, switchers.concat(["--outDir", paths.es2015.out]));
+        
+    let es2015ES5 = ["--target", "es5", "--outDir", paths.es2015.outES5];
+    compile("Compiling es2015-es5 modules", es2015, switchers.concat(es2015ES5));
+    
+    let commonjs = Path.join(paths.commonjs.in, "tsconfig.json");
+    compile("Compiling commonjs modules", commonjs, switchers.concat(["--outDir", paths.commonjs.out]));
+}
+
+function copyStaticFiles(isWatching: boolean)
+{
+    let targets =
+    [
+        { module: "es2015",     in: Path.join(paths.es2015.in,   "surfacer"), out: paths.es2015.out },
+        { module: "es2015-es5", in: Path.join(paths.es2015.in,   "surfacer"), out: paths.es2015.outES5 },
+        { module: "commonjs",   in: Path.join(paths.commonjs.in, "plugins"),  out: paths.commonjs.out }
+    ];
+
+    targets.forEach
     (
-        `Copy to static files to ./Build/${output}`,
-        ChildProcess.exec(`cpx ./source/**/*.{d.ts,html,css} ./build/${output} ${isWatching ? WATCH : ""}`)
-    )
-);
+        target => log
+        (
+            `Copy static files of ${target.module} modules from ${target.in} to ${target.out}`,
+            ChildProcess.exec(`cpx ${target.in}/**/*.{d.ts,html,css} ${target.out} ${isWatching ? "--watch" : ""}`)
+        )
+    );
+}
+
+execute();

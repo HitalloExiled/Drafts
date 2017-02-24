@@ -1,7 +1,16 @@
 ﻿{
-  "extends": "../../configs/es2015.json",
+  "extends": "../../configs/tsconfig-base.json",
   "compilerOptions":
   {
-    "baseUrl": "./"
-  }
+    "baseUrl": "./",
+    "lib":
+    [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "module": "es2015",
+    "noEmit": true
+  },
+  "include": ["./"]
 }

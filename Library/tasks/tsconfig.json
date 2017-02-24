@@ -1,11 +1,10 @@
 ﻿{
-  "extends": "../configs/commonjs.json",
+  "extends": "../configs/tsconfig-base.json",
   "compileOnSave": true,
   "compilerOptions":
   {
-    "declaration": false,
-    "outDir":      ".",
-    "sourceMap":   true
+    "baseUrl":   "./",
+    "sourceMap": true
   },
   "include": ["./"]
 }

@@ -1,11 +1,16 @@
 ﻿{
-  "extends": "../../configs/commonjs.json",
+  "extends": "../../configs/tsconfig-base.json",
   "compileOnSave": true,
   "compilerOptions":
   {
-    "declaration": false,
-    "baseUrl":     "./",
-    "outDir":      ".",
-    "sourceMap":   true
-  }
+    "baseUrl":   "./",
+    "sourceMap": true,
+    "lib":
+    [
+      "es2015",
+      "es2016"
+    ],
+    "module": "commonjs"
+  },
+  "include": ["./"]
 }

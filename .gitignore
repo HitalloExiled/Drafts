@@ -260,7 +260,7 @@ paket-files/
 __pycache__/
 *.pyc
 Library/build
-Library/source/*.js
-Library/tasks/*.js
-Workbench/source/*.js
-Workbench/tasks/*.js
+source/**/*.js
+source/**/*.js.map
+tasks/**/*.js
+tasks/**/*.js.map

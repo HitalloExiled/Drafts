@@ -3,18 +3,21 @@ import * as Glob    from "glob";
 import * as Path    from "path";
 import * as FS      from "fs";
 
-import devConfig  from "./webpack.config-development";
-import prodConfig from "./webpack.config-production";
+import devConfig  from "./dev";
+import prodConfig from "./prod";
 
-import injectViewPlugin from "surfacer-inject-view-plugin";
+//import injectViewPlugin from "surfacer-plugins";
 
 export default (env: string) =>
 {
-    const DEV  = "DEV";
-    const ROOT = Path.resolve(__dirname, "../");
+    const DEV          = "DEV";
+    const ROOT         = Path.resolve(__dirname, "../../");
+    const SOURCE       = Path.resolve(ROOT, "./source");
+    const NODE_MODULES = Path.resolve(ROOT, "./node_modules");
+    const LIBRARY      = Path.resolve(ROOT, "../Library/source");
 
     let entries = {} as Webpack.Entry;
-    let matches = new Glob.GlobSync(`${ROOT}/source/views/*`).found;
+    let matches = new Glob.GlobSync(`${SOURCE}/views/*`).found;
 
     matches.forEach
     (
@@ -34,7 +37,7 @@ export default (env: string) =>
     let config = 
     {
         devtool: "#source-map",
-        context: ROOT,
+        context: SOURCE,
         entry:   entries,
         output:
         {
@@ -49,9 +52,9 @@ export default (env: string) =>
             modules:
             [
                 ".",
-                Path.join(ROOT, "source"),
-                Path.join(ROOT, "node_modules", "surfacer-es5"),
-                Path.join(ROOT, "node_modules")
+                SOURCE,
+                Path.join(LIBRARY, "es2015"),
+                NODE_MODULES
             ]
         } as Webpack.Resolve,
         module:
@@ -76,7 +79,7 @@ export default (env: string) =>
                     options: { attrs: ['img:src', 'link:href'] }
                 },
                 {
-                    test:    /\.ts$/,
+                    test: /\.ts$/,
                     use:
                     [
                         {
@@ -85,7 +88,7 @@ export default (env: string) =>
                             {
                                 compilerOptions:
                                 {
-                                    module: "es2015",
+                                    noEmit: false,
                                     target: "es5"
                                 }
                             },                        
@@ -99,7 +102,7 @@ export default (env: string) =>
     let envConfig = env == DEV ? devConfig : prodConfig;
 
     envConfig.plugins = envConfig.plugins || [];
-    envConfig.plugins.push(new injectViewPlugin())
+    //envConfig.plugins.push(new injectViewPlugin())
 
     return Object.assign
     (

@@ -1,4 +1,4 @@
-﻿export abstract class CustomElement extends HTMLElement
+﻿abstract class CustomElement extends HTMLElement
 {
     private _template: Nullable<HTMLTemplateElement>;
     
@@ -40,3 +40,5 @@
     /** Called when the element is adopted into a new document */
     public abstract adoptedCallback(oldDocument: Document, newDocument: Document): void;
 }
+
+export default CustomElement;

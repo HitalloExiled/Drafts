@@ -11,7 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4a7b756a-3c95-44e6-a3d3-3a71b82fe608</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>start.js</StartupFile>
+    <StartupFile>tasks\build.ts</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -37,7 +37,9 @@
     <Content Include="README.md" />
     <Content Include="configs\tsconfig-base.json" />
     <Content Include="source\commonjs\tsconfig.json" />
+    <Content Include="source\es2015\surfacer\layout\column\index.html" />
     <Content Include="source\es2015\surfacer\layout\grid\index.html" />
+    <Content Include="source\es2015\surfacer\layout\row\index.html" />
     <Content Include="source\es2015\tsconfig.json" />
     <Content Include="tasks\tsconfig.json" />
     <Content Include="tslint.json" />
@@ -57,7 +59,10 @@
     <Folder Include="source\es2015\surfacer\%40types\global\" />
     <Folder Include="source\es2015\surfacer\core\" />
     <Folder Include="source\es2015\surfacer\layout\" />
+    <Folder Include="source\es2015\surfacer\layout\grid2\" />
     <Folder Include="source\es2015\surfacer\layout\grid\" />
+    <Folder Include="source\es2015\surfacer\layout\column\" />
+    <Folder Include="source\es2015\surfacer\layout\row\" />
     <Folder Include="tasks\" />
   </ItemGroup>
   <ItemGroup>
@@ -66,12 +71,12 @@
     <TypeScriptCompile Include="source\es2015\surfacer\%40types\global\index.d.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\core\decorators.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\custom-element.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\layout\column\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\layout\grid2\index.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\layout\grid\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\layout\row\index.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\view.ts" />
     <TypeScriptCompile Include="tasks\build.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="start.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

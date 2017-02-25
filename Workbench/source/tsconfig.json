@@ -1,0 +1,25 @@
+﻿{
+  "extends": "../configs/tsconfig-base.json",
+  "compilerOptions":
+  {
+    "baseUrl": "./",
+    "lib":
+    [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "module": "es2015",
+    "noEmit": true,
+    "paths":
+    {
+      "*": ["*", "../../Library/source/es2015/*"]
+    },
+    "typeRoots":
+    [
+      "../node_modules/@types",
+      "../../Library/source/es2015/surfacer/@types"
+    ]
+  },
+  "include": ["./"]
+}

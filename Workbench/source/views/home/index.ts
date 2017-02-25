@@ -1,8 +1,11 @@
 import "dependencies";
+import Master from "views/master";
 
-import {Grid} from "surfacer/layout/grid";
+import Grid   from "surfacer/layout/grid";
+import {view} from "surfacer/core/decorators";
 
-class Home
+@view("view-home", require("index.html"), Master)
+export default class Home
 {
     constructor()
     {
@@ -15,5 +18,3 @@ class Home
         window.customElements.whenDefined("surface-layout-grid").then(() => alert("grid created"));
     }
 }
-
-export default new Home();

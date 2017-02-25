@@ -1,5 +1,5 @@
-﻿import { CustomElement } from "surfacer/custom-element";
-import { View }          from "surfacer/view";
+﻿import CustomElement from "surfacer/custom-element";
+import View          from "surfacer/view";
 
 export function component(name: string, template: string, options?: CustomElementRegistry.Options): ClassDecorator
 {
@@ -10,12 +10,18 @@ export function component(name: string, template: string, options?: CustomElemen
     }
 }
 
-export function view(name: string, template: string, master?: View, options?: CustomElementRegistry.Options): ClassDecorator
+export function view(name: string, template: string, master?: Constructor<View>, options?: CustomElementRegistry.Options): ClassDecorator
 {
     return (target: Constructor<CustomElement>) =>
     {
         target.prototype.template = templateParse(template);
         window.customElements.define(name, target, options);
+
+        if (master)
+        {
+            let masterView = new master();
+            window.customElements.whenDefined(name).then(() => masterView.appendChild(target.prototype));
+        }   
     }
 }
 

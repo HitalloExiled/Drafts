@@ -10,7 +10,7 @@ let paths =
     {
         in:     Path.join(source, "es2015"),
         out:    Path.join(build,  "surfacer"),
-        outES5: Path.join(build,  "surfacer-es5"),
+        outES5: Path.join(build,  "surfacer-es5", "surfacer"),
     },
     commonjs:
     {

@@ -37,16 +37,12 @@
   "dependencies": {
     "tslib": "^1.5.0"
   },
-  "scripts": {
-    "task:build:dev": "ts-node ./tasks/build.ts --dev",
-    "task:watch:dev": "ts-node ./tasks/build.ts --dev --watch",
-    "task:build:prod": "ts-node ./tasks/build.ts --prod",
-    "task:watch:prod": "ts-node ./tasks/build.ts --prod --watch",
-    "build:dev": "set NODE_ENV=DEV && rimraf ../Server/public && webpack --colors --display-error-details",
-    "build:prod": "set NODE_ENV=PROD && rimraf ../Server/public && webpack --colors --display-error-details",
-    "cleanlib": "rimraf ./node_modules/surfacer | rimraf ./node_modules/surfacer-es5",
-    "getlib": "npm run --prefix ../Library task:build && mkdirp ./node_modules && cpx ../Library/build/** ./node_modules",
-    "npm-rebuild": "npm rebuild",
-    "watch": "rimraf ./www && webpack --config ./source/webpack.config.ts --watch"
+  "scripts":
+  {
+    "task:build:dev": "ts-node --project ./tasks ./tasks/build.ts --dev",
+    "task:watch:dev": "ts-node --project ./tasks ./tasks/build.ts --dev --watch",
+    "task:build:prod": "ts-node --project ./tasks ./tasks/build.ts --prod",
+    "task:watch:prod": "ts-node --project ./tasks ./tasks/build.ts --prod --watch",
+    "npm:rebuild": "npm rebuild"
   }
 }

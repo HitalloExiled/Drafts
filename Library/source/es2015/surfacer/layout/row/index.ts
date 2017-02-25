@@ -1,27 +1,17 @@
 ﻿import CustomElement from "surfacer/custom-element";
+import Column        from "surfacer/layout/column";
 import {component}   from "surfacer/core/decorators"
 
-@component("surface-layout-grid", require("index.html"))
-export default class Grid extends CustomElement
+@component("surface-layout-row", require("index.html"))
+export default class Row extends CustomElement
 {
-    private _row: any;
-    public get rows(): any
-    {
-        return this._row;
-    }
-
-    public set rows(value: any)
-    {
-        this._row = value;
-    }
-
-    private _columns: any;
-    public get columns(): any
+    private _columns: Array<Column>;
+    public get columns(): Array<Column>
     {
         return this._columns;
     }
 
-    public set columns(value: any)
+    public set columns(value: Array<Column>)
     {
         this._columns = value;
     }
@@ -29,7 +19,6 @@ export default class Grid extends CustomElement
     public constructor()
     {
         super();
-        let x = ""; x = "";
     }
 
     public connectedCallback()

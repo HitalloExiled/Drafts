@@ -3,8 +3,8 @@ import * as Glob    from "glob";
 import * as Path    from "path";
 import * as FS      from "fs";
 
-import devConfig  from "./dev";
-import prodConfig from "./prod";
+import devConfig  from "./development";
+import prodConfig from "./production";
 
 //import injectViewPlugin from "surfacer-plugins";
 
@@ -15,6 +15,7 @@ export default (env: string) =>
     const SOURCE       = Path.resolve(ROOT, "./source");
     const NODE_MODULES = Path.resolve(ROOT, "./node_modules");
     const LIBRARY      = Path.resolve(ROOT, "../Library/source");
+    const SERVER       = Path.resolve(ROOT, "../Server");
 
     let entries = {} as Webpack.Entry;
     let matches = new Glob.GlobSync(`${SOURCE}/views/*`).found;
@@ -41,7 +42,7 @@ export default (env: string) =>
         entry:   entries,
         output:
         {
-            path:          Path.resolve(ROOT, "../Server"),
+            path:          SERVER,
             publicPath:    "",
             filename:      "[name].js",
             libraryTarget: "umd"
@@ -63,13 +64,35 @@ export default (env: string) =>
             [
                 {
                     test: /\.(png|jpe?g)$/,
-                    loader: "url-loader"
+                    use:
+                    [
+                        {
+                            loader: "file-loader",
+                            options:
+                            {
+                                name:       "/[path][name].[ext]",
+                                publicPath: "",
+                                outputPath: Path.normalize(SERVER)
+                            }
+                        },
+                        //{ loader: "url-loader" }
+                    ]
                 },
                 {
                     test: /\.scss$/,
                     use:
                     [
+                        {
+                            loader: "file-loader",
+                            options:
+                            {
+                                name:       "/[path][name].css",
+                                //publicPath: SERVER,
+                                outputPath: Path.normalize(SERVER)
+                            }
+                        },
                         { loader: "url-loader" },
+                        { loader: "css-loader" },
                         { loader: "sass-loader" }
                     ]
                 },

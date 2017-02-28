@@ -10,7 +10,7 @@
       "es2016"
     ],
     "sourceMap": true,
-    "module": "commonjs"
+    "module":    "commonjs"
   },
   "include": ["./"]
 }

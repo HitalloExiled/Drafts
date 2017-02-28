@@ -3,23 +3,17 @@ const HTTP = require("http");
 const FS = require("fs");
 const Path = require("path");
 const port = process.env.port || 1337;
-const root = Path.resolve(__dirname, "../www");
+const root = Path.resolve(__dirname);
 HTTP.createServer((request, response) => {
     try {
         if (request.url == "/") {
             loadFile(response, Path.join(root, "views/home/index.html"));
         }
+        else if (/\/[^\/]+/.test(request.url || "")) {
+            loadFile(response, Path.join(root, "views/home", request.url || ""));
+        }
         else {
-            loadFile(response, Path.join(root, request.url));
-            if (request.url.indexOf(".js") > -1) {
-                loadJS(response, Path.join(root, request.url));
-            }
-            else if (request.url.indexOf(".ts") > -1) {
-                loadJS(response, Path.join(Path.resolve(root, "../source"), request.url));
-            }
-            else {
-                loadFile(response, Path.join(root, request.url));
-            }
+            loadFile(response, Path.resolve(root, request.url || ""));
         }
     }
     catch (error) {
@@ -35,6 +29,9 @@ function loadFile(response, path) {
         switch (extension) {
             case '.js':
                 contentType = 'text/javascript';
+                break;
+            case '.map':
+                contentType = 'application/json';
                 break;
             case '.css':
                 contentType = 'text/css';
@@ -56,17 +53,6 @@ function loadFile(response, path) {
         response.writeHead(200, { "Content-Type": contentType });
         response.write(data);
         response.end();
-    }
-    catch (error) {
-        throw error;
-    }
-}
-function loadJS(response, path) {
-    try {
-        let data = FS.readFileSync(path);
-        eval(data);
-        response.writeHead(200, { "Content-Type": "text/html", "content-lenght": data.length });
-        response.end(data);
     }
     catch (error) {
         throw error;

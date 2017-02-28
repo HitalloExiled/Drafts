@@ -19,8 +19,8 @@ export function view(name: string, template: string, master?: Constructor<View>,
 
         if (master)
         {
-            let masterView = new master();
-            window.customElements.whenDefined(name).then(() => masterView.appendChild(target.prototype));
+            //let masterView = new master();
+            //window.customElements.whenDefined(name).then(() => masterView.appendChild(target.prototype));
         }   
     }
 }

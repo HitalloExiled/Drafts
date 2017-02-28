@@ -19,7 +19,7 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <EnableTypeScript>true</EnableTypeScript>
@@ -37,9 +37,14 @@
     <Content Include="README.md" />
     <Content Include="configs\tsconfig-base.json" />
     <Content Include="source\commonjs\tsconfig.json" />
-    <Content Include="source\es2015\surfacer\layout\column\index.html" />
-    <Content Include="source\es2015\surfacer\layout\grid\index.html" />
-    <Content Include="source\es2015\surfacer\layout\row\index.html" />
+    <Content Include="source\es2015\surfacer\data\column\index.html" />
+    <Content Include="source\es2015\surfacer\data\content\index.scss" />
+    <Content Include="source\es2015\surfacer\data\grid\index.html" />
+    <Content Include="source\es2015\surfacer\data\row\index.html" />
+    <Content Include="source\es2015\surfacer\layout\content\index.html" />
+    <Content Include="source\es2015\surfacer\layout\content\index.scss" />
+    <Content Include="source\es2015\surfacer\layout\stack\index.html" />
+    <Content Include="source\es2015\surfacer\layout\stack\index.scss" />
     <Content Include="source\es2015\tsconfig.json" />
     <Content Include="tasks\tsconfig.json" />
     <Content Include="tslint.json" />
@@ -55,26 +60,30 @@
     <Folder Include="source\es2015\" />
     <Folder Include="source\es2015\surfacer\" />
     <Folder Include="source\es2015\surfacer\%40types\" />
-    <Folder Include="source\es2015\surfacer\%40types\custom-element-registry\" />
     <Folder Include="source\es2015\surfacer\%40types\global\" />
     <Folder Include="source\es2015\surfacer\core\" />
+    <Folder Include="source\es2015\surfacer\data\" />
+    <Folder Include="source\es2015\surfacer\data\content\" />
+    <Folder Include="source\es2015\surfacer\data\grid\" />
+    <Folder Include="source\es2015\surfacer\data\column\" />
+    <Folder Include="source\es2015\surfacer\data\row\" />
     <Folder Include="source\es2015\surfacer\layout\" />
-    <Folder Include="source\es2015\surfacer\layout\grid2\" />
-    <Folder Include="source\es2015\surfacer\layout\grid\" />
-    <Folder Include="source\es2015\surfacer\layout\column\" />
-    <Folder Include="source\es2015\surfacer\layout\row\" />
+    <Folder Include="source\es2015\surfacer\layout\content\" />
+    <Folder Include="source\es2015\surfacer\layout\stack\" />
     <Folder Include="tasks\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="source\commonjs\plugins\inject-view-plugin\index.ts" />
-    <TypeScriptCompile Include="source\es2015\surfacer\%40types\custom-element-registry\index.d.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\%40types\global\index.d.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\core\decorators.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\core\utils.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\custom-element.ts" />
-    <TypeScriptCompile Include="source\es2015\surfacer\layout\column\index.ts" />
-    <TypeScriptCompile Include="source\es2015\surfacer\layout\grid2\index.ts" />
-    <TypeScriptCompile Include="source\es2015\surfacer\layout\grid\index.ts" />
-    <TypeScriptCompile Include="source\es2015\surfacer\layout\row\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\data\column\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\data\content\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\data\grid\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\data\row\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\layout\content\index.ts" />
+    <TypeScriptCompile Include="source\es2015\surfacer\layout\stack\index.ts" />
     <TypeScriptCompile Include="source\es2015\surfacer\view.ts" />
     <TypeScriptCompile Include="tasks\build.ts" />
   </ItemGroup>

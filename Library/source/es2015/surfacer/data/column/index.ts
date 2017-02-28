@@ -1,5 +1,5 @@
 ﻿import CustomElement from "surfacer/custom-element";
-import {component}     from "surfacer/core/decorators"
+import {component}   from "surfacer/core/decorators";
 
 @component("surface-layout-column", require("index.html"))
 export default class Column extends CustomElement

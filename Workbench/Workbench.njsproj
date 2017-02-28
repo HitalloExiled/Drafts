@@ -11,7 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4248b261-8c4a-4cf9-b82c-609101b3c2ad</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>tasks\build.js</StartupFile>
+    <StartupFile>tasks\build.ts</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -19,7 +19,7 @@
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <EnableTypeScript>true</EnableTypeScript>
@@ -49,9 +49,9 @@
     <TypeScriptCompile Include="source\views\master\index.ts" />
     <TypeScriptCompile Include="source\views\home\index.ts" />
     <TypeScriptCompile Include="tasks\build.ts" />
-    <TypeScriptCompile Include="tasks\webpack-config\dev.ts" />
+    <TypeScriptCompile Include="tasks\webpack-config\development.ts" />
     <TypeScriptCompile Include="tasks\webpack-config\index.ts" />
-    <TypeScriptCompile Include="tasks\webpack-config\prod.ts" />
+    <TypeScriptCompile Include="tasks\webpack-config\production.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="source\codebase\" />

@@ -1,0 +1,57 @@
+﻿surfacer-layout-content
+{
+    display: flex;
+    margin:  auto;
+    > * { margin: auto; }
+}
+
+surfacer-layout-stack
+{
+    display: flex;
+    &,
+    &[v],
+    &[vertical],
+    &[orientaion="vertical"]
+    {
+        > slot
+        {
+            flex-direction: column;
+            height:         100%;
+            overflow:       auto;
+        }
+
+        &[reverse]
+        {
+            flex-direction: column-reverse;
+        }
+
+        surfacer-layout-content
+        {
+            @extend surfacer-layout-stack[v];
+        }
+    }
+  
+    &[h],
+    &[horizontal],
+    &[orientaion="horizontal"]
+    {
+        > slot
+        {
+            flex-direction: row;
+            width:          100%;
+            overflow:       auto;
+        }
+
+        &[reverse]
+        {
+            flex-direction: row-reverse;
+        }
+
+        surfacer-layout-content
+        {
+            @extend surfacer-layout-stack[h];
+        }
+    }  
+  
+    > * { margin: auto; }
+}

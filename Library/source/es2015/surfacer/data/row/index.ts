@@ -1,6 +1,6 @@
 ﻿import CustomElement from "surfacer/custom-element";
-import Column        from "surfacer/layout/column";
-import {component}   from "surfacer/core/decorators"
+import Column        from "surfacer/data/column";
+import {component}   from "surfacer/core/decorators";
 
 @component("surface-layout-row", require("index.html"))
 export default class Row extends CustomElement
@@ -20,16 +20,4 @@ export default class Row extends CustomElement
     {
         super();
     }
-
-    public connectedCallback()
-    { }
-
-    public disconnectedCallback()
-    { }
-
-    public attributeChangedCallback(attributeName: string, oldValue: string, newValue: string, namespace: string)
-    { }
-
-    public adoptedCallback(oldDocument: Document, newDocument: Document)
-    { }
 }

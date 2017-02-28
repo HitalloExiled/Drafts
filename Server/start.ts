@@ -15,9 +15,13 @@ HTTP.createServer
             {
                 loadFile(response, Path.join(root, "views/home/index.html"));
             }
+            else if (/\/[^\/]+/.test(request.url || ""))
+            {
+                loadFile(response, Path.join(root, "views/home", request.url || ""));
+            }
             else
             {
-                loadFile(response, Path.join(root, request.url));
+                loadFile(response, Path.resolve(root, request.url || ""));
 
                 //if (request.url.indexOf(".js") > -1)
                 //{
@@ -78,22 +82,6 @@ function loadFile(response: HTTP.ServerResponse, path: string): void
         response.writeHead(200, { "Content-Type": contentType });
         response.write(data);
         response.end();
-    }
-    catch (error)
-    {
-        throw error;
-    }
-}
-
-function loadJS(response: HTTP.ServerResponse, path: string): void
-{
-    try
-    {
-        let data = FS.readFileSync(path);
-
-        eval(data as any);
-        response.writeHead(200, { "Content-Type": "text/html", "content-lenght": data.length });
-        response.end(data);
     }
     catch (error)
     {

@@ -8,8 +8,6 @@
     "emitDecoratorMetadata":        true,
     "experimentalDecorators":       true,
     "importHelpers":                true,
-    //"inlineSources":                true,
-    //"inlineSourceMap":              true,
     "lib":
     [
       "es2015",
@@ -17,19 +15,19 @@
     ],
     "module":                         "commonjs",
     "moduleResolution":               "node",
-    //"noEmit":                         true,
     "noEmitOnError":                  true,
     "noImplicitReturns":              true,
     "noImplicitThis":                 true,
     "noUnusedLocals":                 true,
     "sourceMap":                      true,
-    //"strictNullChecks":               true,
+    "strictNullChecks":               true,
     "suppressImplicitAnyIndexErrors": true,
     "target":                         "es6",
     "typeRoots":
     [
-      "../node_modules/@types"
+      "node_modules/@types"
     ]
   },
-  "include": ["./"]
+  "include": ["./"],
+  "exclude": ["node_modules"]
 }

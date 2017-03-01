@@ -1,50 +1,36 @@
-﻿layout-content
+﻿:host
 {
     display: flex;
-    margin:  auto;
-    > * { margin: auto; }
-}
-
-layout-stack
-{
-    display: flex;
-    &,
-    &[v],
-    &[vertical],
-    &[orientaion="vertical"]
+    
+    @at-root
+    #{&}([v]),
+    #{&}([vertical]),
+    #{&}([orientaion="vertical"])
     {
-       /* > slot */
-        //{
-            flex-direction: column;
-            height:         100%;
-            overflow:       auto;
-            
-        //}
+        flex-direction: column;
+        height:         100%;
+        overflow:       auto;
 
-        &[reverse]/* > slot */
+        &[reverse]
         {
             flex-direction: column-reverse;
         }
     }
   
-    &[h],
-    &[horizontal],
-    &[orientaion="horizontal"]
+    @at-root
+    #{&}([h]),
+    #{&}([horizontal]),
+    #{&}([orientaion="horizontal"])
     {
+        flex-direction: row;
+        width:          100%;
+        overflow:       auto;
 
-       /* > slot */
-        //{
-            flex-direction: row;
-            width:          100%;
-            overflow:       auto;
-            
-        //}
-
-        &[reverse]/* > slot */
+        &[reverse]
         {
             flex-direction: row-reverse;
         }
-    }  
+    }
   
     > * { margin: auto; }
 }

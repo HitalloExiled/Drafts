@@ -1,0 +1,16 @@
+:host {
+  display: flex; }
+  :host([v]), :host([vertical]), :host([orientaion="vertical"]) {
+    flex-direction: column;
+    height: 100%;
+    overflow: auto; }
+    :host([v])[reverse], :host([vertical])[reverse], :host([orientaion="vertical"])[reverse] {
+      flex-direction: column-reverse; }
+  :host([h]), :host([horizontal]), :host([orientaion="horizontal"]) {
+    flex-direction: row;
+    width: 100%;
+    overflow: auto; }
+    :host([h])[reverse], :host([horizontal])[reverse], :host([orientaion="horizontal"])[reverse] {
+      flex-direction: row-reverse; }
+  :host > * {
+    margin: auto; }

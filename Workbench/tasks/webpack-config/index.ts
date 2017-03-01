@@ -70,7 +70,7 @@ export default (env: string) =>
                             loader: "file-loader",
                             options:
                             {
-                                name:       "/[path][name].[ext]",
+                                name:       "/resources/[hash].[ext]",
                                 publicPath: "",
                                 outputPath: "./"
                             }
@@ -86,7 +86,7 @@ export default (env: string) =>
                             loader: "file-loader",
                             options:
                             {
-                                name:       "/[path][name].css",
+                                name:       "/resources/[hash].css",
                                 outputPath: "./"
                             }
                         },

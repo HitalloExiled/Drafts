@@ -9,11 +9,12 @@ HTTP.createServer((request, response) => {
         if (request.url == "/") {
             loadFile(response, Path.join(root, "views/home/index.html"));
         }
-        else if (/\/[^\/]+/.test(request.url || "")) {
+        else if (/^\/[^\/]+$/.test(request.url || "")) {
             loadFile(response, Path.join(root, "views/home", request.url || ""));
         }
-        else {
-            loadFile(response, Path.resolve(root, request.url || ""));
+        else if (request.url) {
+            let url = request.url.replace(/\/(.*)/, "$1");
+            loadFile(response, Path.resolve(root, url));
         }
     }
     catch (error) {

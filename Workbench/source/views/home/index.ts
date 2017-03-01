@@ -1,4 +1,6 @@
 import "dependencies";
+import "surfacer/layout/stack";
+
 import Master from "views/master";
 import View   from "surfacer/view";
 
@@ -12,12 +14,9 @@ export default class Home extends View
     {
         super();
         let grid = new Grid();
-        grid.id = "mains-grid";
+        grid.id = "main-grid";
         
         if (this.shadowRoot)
             this.shadowRoot.appendChild(grid);
-
-        alert("Hello World!!!!, Mother Fucker!!!");
-        window.customElements.whenDefined("surface-layout-grid").then(() => alert("grid created"));
     }
 }

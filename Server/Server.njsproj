@@ -33,9 +33,11 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="resources\icon.png" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="tslint.json" />
+    <Content Include="views\home\index.css" />
     <Content Include="views\home\index.html" />
     <TypeScriptCompile Include="start.ts" />
   </ItemGroup>

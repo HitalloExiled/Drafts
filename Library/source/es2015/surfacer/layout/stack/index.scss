@@ -1,11 +1,11 @@
-﻿surfacer-layout-content
+﻿layout-content
 {
     display: flex;
     margin:  auto;
     > * { margin: auto; }
 }
 
-surfacer-layout-stack
+layout-stack
 {
     display: flex;
     &,
@@ -13,21 +13,17 @@ surfacer-layout-stack
     &[vertical],
     &[orientaion="vertical"]
     {
-        > slot
-        {
+       /* > slot */
+        //{
             flex-direction: column;
             height:         100%;
             overflow:       auto;
-        }
+            
+        //}
 
-        &[reverse]
+        &[reverse]/* > slot */
         {
             flex-direction: column-reverse;
-        }
-
-        surfacer-layout-content
-        {
-            @extend surfacer-layout-stack[v];
         }
     }
   
@@ -35,21 +31,18 @@ surfacer-layout-stack
     &[horizontal],
     &[orientaion="horizontal"]
     {
-        > slot
-        {
+
+       /* > slot */
+        //{
             flex-direction: row;
             width:          100%;
             overflow:       auto;
-        }
+            
+        //}
 
-        &[reverse]
+        &[reverse]/* > slot */
         {
             flex-direction: row-reverse;
-        }
-
-        surfacer-layout-content
-        {
-            @extend surfacer-layout-stack[h];
         }
     }  
   

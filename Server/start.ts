@@ -15,26 +15,14 @@ HTTP.createServer
             {
                 loadFile(response, Path.join(root, "views/home/index.html"));
             }
-            else if (/\/[^\/]+/.test(request.url || ""))
+            else if (/^\/[^\/]+$/.test(request.url || ""))
             {
                 loadFile(response, Path.join(root, "views/home", request.url || ""));
             }
-            else
+            else if (request.url)
             {
-                loadFile(response, Path.resolve(root, request.url || ""));
-
-                //if (request.url.indexOf(".js") > -1)
-                //{
-                //    loadJS(response, Path.join(root, request.url));
-                //}
-                //else if (request.url.indexOf(".ts") > -1)
-                //{
-                //    loadJS(response, Path.join(Path.resolve(root, "../source"), request.url));
-                //}
-                //else
-                //{
-                //    loadFile(response, Path.join(root, request.url));
-                //}
+                let url = request.url.replace(/\/(.*)/, "$1");
+                loadFile(response, Path.resolve(root, url));
             }
         }
         catch (error)

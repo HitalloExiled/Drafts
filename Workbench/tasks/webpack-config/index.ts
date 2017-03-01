@@ -72,7 +72,7 @@ export default (env: string) =>
                             {
                                 name:       "/[path][name].[ext]",
                                 publicPath: "",
-                                outputPath: Path.normalize(SERVER)
+                                outputPath: "./"
                             }
                         },
                         //{ loader: "url-loader" }
@@ -87,11 +87,10 @@ export default (env: string) =>
                             options:
                             {
                                 name:       "/[path][name].css",
-                                //publicPath: SERVER,
-                                outputPath: Path.normalize(SERVER)
+                                outputPath: "./"
                             }
                         },
-                        { loader: "url-loader" },
+                        { loader: "extract-loader" },
                         { loader: "css-loader" },
                         { loader: "sass-loader" }
                     ]

@@ -10,6 +10,7 @@
     "@types/glob": "^5.0.30",
     "@types/html-webpack-plugin": "^2.22.4",
     "@types/node": "^7.0.4",
+    "@types/rimraf": "0.0.28",
     "@types/webpack": "^2.2.6",
     "@types/xregexp": "^3.0.28",
     "cpx": "^1.5.0",
@@ -37,8 +38,7 @@
   "dependencies": {
     "tslib": "^1.5.0"
   },
-  "scripts":
-  {
+  "scripts": {
     "task:build:dev": "ts-node --project ./tasks ./tasks/build.ts --dev",
     "task:watch:dev": "ts-node --project ./tasks ./tasks/build.ts --dev --watch",
     "task:build:prod": "ts-node --project ./tasks ./tasks/build.ts --prod",

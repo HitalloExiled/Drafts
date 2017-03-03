@@ -89,6 +89,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /* harmony export (immutable) */ __webpack_exports__["c"] = __metadata;
 /* unused harmony export __awaiter */
 /* unused harmony export __generator */
+/* unused harmony export __exportStar */
+/* unused harmony export __values */
+/* unused harmony export __read */
+/* unused harmony export __spread */
+/* unused harmony export __asyncGenerator */
+/* unused harmony export __asyncDelegator */
+/* unused harmony export __asyncValues */
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -131,22 +138,22 @@ function __rest(s, e) {
         for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
             t[p[i]] = s[p[i]];
     return t;
-};
+}
 
 function __decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+}
 
 function __param(paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
-};
+}
 
 function __metadata(metadataKey, metadataValue) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-};
+}
 
 function __awaiter(thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -155,11 +162,11 @@ function __awaiter(thisArg, _arguments, P, generator) {
         function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-};
+}
 
 function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t;
-    return { next: verb(0), "throw": verb(1), "return": verb(2) };
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -183,6 +190,70 @@ function __generator(thisArg, body) {
         } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
+}
+
+function __exportStar(m, exports) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+
+function __values(o) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator], i = 0;
+    if (m) return m.call(o);
+    return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+};
+
+function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
+
+function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+};
+
+function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), q = [], c, i;
+    return i = { next: verb("next"), "throw": verb("throw"), "return": verb("return") }, i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { return function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]), next(); }); }; }
+    function next() { if (!c && q.length) resume((c = q.shift())[0], c[1]); }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(c[3], e); } }
+    function step(r) { r.done ? settle(c[2], r) : r.value[0] === "yield" ? settle(c[2], { value: r.value[1], done: false }) : Promise.resolve(r.value[1]).then(r.value[0] === "delegate" ? delegate : fulfill, reject); }
+    function delegate(r) { step(r.done ? r : { value: ["yield", r.value], done: false }); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { c = void 0, f(v), next(); }
+};
+
+function __asyncDelegator(o) {
+    var i = { next: verb("next"), "throw": verb("throw", function (e) { throw e; }), "return": verb("return", function (v) { return { value: v, done: true }; }) };
+    return o = __asyncValues(o), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { return function (v) { return { value: ["delegate", (o[n] || f).call(o, v)], done: false }; }; }
+};
+
+function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator];
+    return m ? m.call(o) : typeof __values === "function" ? __values(o) : o[Symbol.iterator]();
 };
 
 /***/ }),
@@ -203,6 +274,8 @@ function view(name, template, master, options) {
         target.prototype.template = templateParse(template);
         window.customElements.define(name, target, options);
         if (master) {
+            //let masterView = new master();
+            //window.customElements.whenDefined(name).then(() => masterView.appendChild(target.prototype));
         }
     };
 }
@@ -1110,7 +1183,9 @@ function installCustomElements(window, polyfill) {'use strict';
     asapTimer = 0,
   
     // internal flags
-    setListener = false,
+    V0 = REGISTER_ELEMENT in document,
+    setListener = true,
+    justSetup = false,
     doesNotSupportDOMAttrModified = true,
     dropDomContentLoaded = true,
   
@@ -1132,7 +1207,7 @@ function installCustomElements(window, polyfill) {'use strict';
   ;
   
   // only if needed
-  if (!(REGISTER_ELEMENT in document)) {
+  if (!V0) {
   
     if (sPO || hasProto) {
         patchIfNotAlready = function (node, proto) {
@@ -1320,11 +1395,11 @@ function installCustomElements(window, polyfill) {'use strict';
     // set as enumerable, writable and configurable
     document[REGISTER_ELEMENT] = function registerElement(type, options) {
       upperType = type.toUpperCase();
-      if (!setListener) {
+      if (setListener) {
         // only first time document.registerElement is used
         // we need to set this listener
         // setting it by default might slow down for no reason
-        setListener = true;
+        setListener = false;
         if (MutationObserver) {
           observer = (function(attached, detached){
             function checkEmAll(list, callback) {
@@ -1388,10 +1463,12 @@ function installCustomElements(window, polyfill) {'use strict';
             i = getTypeIndex(node)
           ;
           if (-1 < i) patch(node, protos[i]);
-          if (deep) loopAndSetup(node.querySelectorAll(query));
+          if (deep && query.length) loopAndSetup(node.querySelectorAll(query));
           return node;
         };
       }
+  
+      if (justSetup) return (justSetup = false);
   
       if (-2 < (
         indexOf.call(types, PREFIX_IS + upperType) +
@@ -1436,7 +1513,7 @@ function installCustomElements(window, polyfill) {'use strict';
           create(HTMLElementPrototype)
       );
   
-      loopAndVerify(
+      if (query.length) loopAndVerify(
         document.querySelectorAll(query),
         ATTACHED
       );
@@ -1498,7 +1575,7 @@ function installCustomElements(window, polyfill) {'use strict';
     return function (node) {
       if (isValidNode(node)) {
         verifyAndSetupAndAction(node, action);
-        loopAndVerify(
+        if (query.length) loopAndVerify(
           node.querySelectorAll(query),
           action
         );
@@ -1566,7 +1643,7 @@ function installCustomElements(window, polyfill) {'use strict';
       dropDomContentLoaded = false;
       e.currentTarget.removeEventListener(DOM_CONTENT_LOADED, onReadyStateChange);
     }
-    loopAndVerify(
+    if (query.length) loopAndVerify(
       (e.target || document).querySelectorAll(query),
       e.detail === DETACHED ? DETACHED : ATTACHED
     );
@@ -1823,6 +1900,10 @@ function installCustomElements(window, polyfill) {'use strict';
         patchedCreateElement.call(this, name, secondArgument(is)) :
         patchedCreateElement.call(this, name);
     });
+    if (!V0) {
+      justSetup = true;
+      document[REGISTER_ELEMENT]('');
+    }
   }
   
   // if customElements is not there at all
@@ -1874,7 +1955,7 @@ installCustomElements(global);
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/resources/a066fafa596f9084963007954244f4f0.css";
+module.exports = __webpack_require__.p + "/resources/b4de806a1766cb8243067cde50a19637.css";
 
 /***/ }),
 /* 13 */

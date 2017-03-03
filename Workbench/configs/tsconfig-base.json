@@ -13,11 +13,6 @@
     "noUnusedLocals":                 true,
     "strictNullChecks":               true,
     "suppressImplicitAnyIndexErrors": true,
-    "target":                         "es6",
-    "typeRoots":
-    [
-      "../@types",
-      "../node_modules/@types"
-    ]
+    "target":                         "es6"
   }
 }

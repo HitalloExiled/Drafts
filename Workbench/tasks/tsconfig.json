@@ -10,7 +10,12 @@
       "es2016"
     ],
     "sourceMap": true,
-    "module":    "commonjs"
+    "module":    "commonjs",
+    "typeRoots":
+    [
+      "./@types",
+      "../node_modules/@types"
+    ]
   },
   "include": ["./"]
 }

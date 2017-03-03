@@ -3,5 +3,23 @@
     "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,    
     "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
-    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    
+    "files.exclude":
+    {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Workbench/**/*.js": true,
+        "**/Workbench/**/*.js.map": true,
+        "**/Server/*.js": true,
+        "**/Server/*.js.map": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/**.njsproj": true,
+        "**/node_modules": true
+
+    },
+    "workbench.iconTheme": "vs-seti"
 }

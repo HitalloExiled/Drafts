@@ -1,0 +1,24 @@
+layout-content {
+  display: flex;
+  margin: auto; }
+  layout-content > * {
+    margin: auto; }
+
+layout-stack {
+  display: flex; }
+  layout-stack, layout-stack[v], layout-stack[vertical], layout-stack[orientaion="vertical"] {
+    /* > slot */
+    flex-direction: column;
+    height: 100%;
+    overflow: auto; }
+    layout-stack[reverse], layout-stack[v][reverse], layout-stack[vertical][reverse], layout-stack[orientaion="vertical"][reverse] {
+      flex-direction: column-reverse; }
+  layout-stack[h], layout-stack[horizontal], layout-stack[orientaion="horizontal"] {
+    /* > slot */
+    flex-direction: row;
+    width: 100%;
+    overflow: auto; }
+    layout-stack[h][reverse], layout-stack[horizontal][reverse], layout-stack[orientaion="horizontal"][reverse] {
+      flex-direction: row-reverse; }
+  layout-stack > * {
+    margin: auto; }

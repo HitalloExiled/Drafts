@@ -1,16 +1,16 @@
 ﻿import CustomElement from "surfacer/custom-element";
 import View          from "surfacer/view";
 
-export function component(name: string, template: string, options?: CustomElementRegistry.Options): ClassDecorator
+export function component(name: string, template: string, options?: ElementDefinitionOptions): ClassDecorator
 {
     return (target: Constructor<CustomElement>) =>
     {
-        target.prototype.template = templateParse(template);            
+        target.prototype.template = templateParse(template);
         window.customElements.define(name, target, options);
     }
 }
 
-export function view(name: string, template: string, master?: Constructor<View>, options?: CustomElementRegistry.Options): ClassDecorator
+export function view(name: string, template: string, master?: Constructor<View>, options?: ElementDefinitionOptions): ClassDecorator
 {
     return (target: Constructor<CustomElement>) =>
     {

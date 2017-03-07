@@ -17,7 +17,11 @@
             "type":    "node",
             "request": "launch",
             "name":    "Launch Workbench",
-            "program": "${workspaceRoot}\\Workbench\\tasks\\build.js",            
+            "program": "${workspaceRoot}\\Workbench\\tasks\\build.js",
+            "args":
+            [
+                "--dev"
+            ],
             "cwd":     "${workspaceRoot}\\Workbench",
             "outFiles": []
         },

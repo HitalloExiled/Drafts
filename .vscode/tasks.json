@@ -21,12 +21,13 @@
             "taskName":       "watch-typescript",
             "command":        "tsc",            
             "isShellCommand": true,
-            "args":           ["-p", "./Workbench/tasks", "-w"],
+            "args":           ["-p", "${workspaceRoot}/Workbench/tasks", "-w"],
             "showOutput":     "always",
             "isBackground":   true,
             "problemMatcher": "$tsc-watch",
-            "options": {
-                
+            "options":
+            {
+                "cwd": "${workspaceRoot}/Workbench/node_modules/.bin"
             }
         },
         {

@@ -6,7 +6,7 @@ import * as FS      from "fs";
 import devConfig  from "./development";
 import prodConfig from "./production";
 
-//import injectViewPlugin from "surfacer-plugins";
+import injectViewPlugin from "../../../Library/source/commonjs/plugins/inject-view-plugin";
 
 export default (env: string) =>
 {
@@ -96,9 +96,18 @@ export default (env: string) =>
                     ]
                 },
                 {
-                    test:   /\.html$/,
-                    loader: "html-loader",
-                    options: { attrs: ['img:src', 'link:href'] }
+                    test: /\.html$/,
+                    use:
+                    [
+                        {   
+                            loader: "html-loader",
+                            options: { attrs: ['img:src', 'link:href'] }
+                        },
+                        {
+                            loader: "html-minify-loader",
+                            options: { empty: true }
+                        }
+                    ]
                 },
                 {
                     test: /\.ts$/,
@@ -124,7 +133,7 @@ export default (env: string) =>
     let envConfig = env == DEV ? devConfig : prodConfig;
 
     envConfig.plugins = envConfig.plugins || [];
-    //envConfig.plugins.push(new injectViewPlugin())
+    envConfig.plugins.push(new injectViewPlugin())
 
     return Object.assign
     (

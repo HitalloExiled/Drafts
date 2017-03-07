@@ -375,7 +375,7 @@ CustomElement._observedAttributes = [];
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n    <head>\r\n        <meta charset=\"utf-8\" />\r\n        <title>Template</title>\r\n    </head>\r\n    <body>\r\n    </body>\r\n</html>";
+module.exports = "<!DOCTYPE html><html xmlns=http://www.w3.org/1999/xhtml><head><meta charset=utf-8><title>Template</title></head><body></body></html>";
 
 /***/ }),
 /* 5 */
@@ -417,7 +417,7 @@ module.exports = __webpack_require__.p + "/resources/c1bdd951d3c473f881c633f1800
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n    <link rel=\"stylesheet\" href=\"" + __webpack_require__(13) + "\" />\r\n    <img src=\"" + __webpack_require__(6) + "\" />\r\n    <layout-stack h>\r\n        <h1>Left</h1>\r\n        <h1>Middle</h1>\r\n        <h1>Right</h1>\r\n    </layout-stack>\r\n</template>";
+module.exports = "<template><link rel=stylesheet href=" + __webpack_require__(13) + "><img src=" + __webpack_require__(6) + "><layout-stack h><h1>Left</h1><h1>Middle</h1><h1>Right</h1></layout-stack></template>";
 
 /***/ }),
 /* 8 */
@@ -1955,7 +1955,7 @@ installCustomElements(global);
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "/resources/b4de806a1766cb8243067cde50a19637.css";
+module.exports = __webpack_require__.p + "/resources/a066fafa596f9084963007954244f4f0.css";
 
 /***/ }),
 /* 13 */
@@ -1967,13 +1967,13 @@ module.exports = __webpack_require__.p + "/resources/8cf0a8e5b7bf72537fc9370611e
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = "<template id=\"surfacer-layout-grid\">\r\n    <h1>Working!!!</h1>\r\n    <h1>Working!!!</h1>\r\n    <h1>Working!!!</h1>\r\n    <h1>Working!!!</h1>\r\n</template>";
+module.exports = "<template id=surfacer-layout-grid><h1>Working!!!</h1><h1>Working!!!</h1><h1>Working!!!</h1><h1>Working!!!</h1></template>";
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<template>\r\n    <link rel=\"stylesheet\" href=\"" + __webpack_require__(12) + "\" />\r\n    <slot></slot>\r\n</template>";
+module.exports = "<template><link rel=stylesheet href=" + __webpack_require__(12) + "><slot></slot></template>";
 
 /***/ }),
 /* 16 */

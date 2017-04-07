@@ -1,31 +1,34 @@
-/**
- * The CustomElementRegistry interface provides methods for registering
- * custom elements and querying registered elements
- */
-declare namespace CustomElementRegistry
+declare module "*.html"
 {
-    interface Options
-    {
-        extends: any;
-    }
+    const _: string
+    export default _;
 }
 
-declare interface CustomElementRegistry
+declare module "*.css"
 {
-    /** Defines a new custom element. */
-    define<T extends HTMLElement>(name: string, constructor: Constructor<T>, options?: CustomElementRegistry.Options): Constructor<T>;
+    const _: string
+    export default _;
+}
+
+declare module "*.scss"
+{
+    const _: string
+    export default _;
+}
+
+declare interface ShadyCSS
+{
+    prepareTemplate(templateElement: HTMLTemplateElement, elementName: string, elementExtension?: string);
+    styleElement(element: HTMLElement);
+    styleSubtree(element: HTMLElement, overrideProperties: any);
+    styleDocument(overrideProperties: any);
+    getComputedStyleValue(element: HTMLElement, propertyName: string): any;
     
-    /** returns the constructor for a previously-defined custom element. */
-    get(name: string): Constructor<HTMLElement>;
-
-    /** returns a Promise that resolves when the named element is defined. */
-    whenDefined(name: string): Promise<void>;
+    nativeCss:    boolean,
+    nativeShadow: boolean
 }
 
-declare interface Window
-{
-    customElements: CustomElementRegistry;
-}
+declare var ShadyCSS: ShadyCSS;
 
 declare interface Constructor<T> extends Function
 {

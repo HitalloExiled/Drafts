@@ -6,7 +6,7 @@ const PROD  = "PROD";
 const WATCH = "WATCH";
 const BUILD = "BUILD";
 const ENV   = process.argv[2] == "--dev"   ? DEV : PROD;
-const MODE  = process.argv[3] == "--watch" ? WATCH : BUILD;
+const MODE  = (process.argv[3] == "-w" || process.argv[3] == "--watch") ? WATCH : BUILD;
 
 let compiler = Webpack(config(ENV));
 

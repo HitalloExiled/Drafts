@@ -25,6 +25,7 @@
 
     private applyTemplate(): void
     {
+        ShadyCSS.styleElement(this);
         if (this._template)
             this.attachShadow({ mode: "open" }).appendChild(document.importNode(this._template.content, true));
     }

@@ -10,7 +10,7 @@ export default class InjectViewPlugin
         //console.log(compiler);
         compiler.plugin
         (
-            "make",
+            "emit",
             (compilation, callback) =>
             {
                 //console.log(compilation);

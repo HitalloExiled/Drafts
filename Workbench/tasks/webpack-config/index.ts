@@ -7,7 +7,6 @@ import devConfig  from "./development";
 import prodConfig from "./production";
 
 //import injectViewPlugin from "surfacer-plugins";
-
 export default (env: string) =>
 {
     const DEV          = "DEV";
@@ -82,23 +81,36 @@ export default (env: string) =>
                     test: /\.scss$/,
                     use:
                     [
-                        {
-                            loader: "file-loader",
-                            options:
-                            {
-                                name:       "/resources/[hash].css",
-                                outputPath: "./"
-                            }
-                        },
-                        { loader: "extract-loader" },
+                        //{
+                        //    loader: "file-loader",
+                        //    options:
+                        //    {
+                        //        name:       "/resources/[hash].css",
+                        //        outputPath: "./"
+                        //    }
+                        //},
+                        //{ loader: "extract-loader" },
+                        { loader: "to-string-loader"},
                         { loader: "css-loader" },
                         { loader: "sass-loader" }
                     ]
                 },
                 {
                     test:   /\.html$/,
-                    loader: "html-loader",
-                    options: { attrs: ['img:src', 'link:href'] }
+                    use:
+                    [
+                        {
+                            loader: "html-loader",
+                            options: { attrs: ['img:src', 'link:href'] }
+                        },
+                        {
+                            loader: "html-minify-loader",
+                            options:
+                            {
+                                empty: true
+                            }
+                        }
+                    ]
                 },
                 {
                     test: /\.ts$/,
@@ -111,7 +123,7 @@ export default (env: string) =>
                                 compilerOptions:
                                 {
                                     noEmit: false,
-                                    target: "es5"
+                                    target: "es6"
                                 }
                             },                        
                         }
@@ -124,7 +136,7 @@ export default (env: string) =>
     let envConfig = env == DEV ? devConfig : prodConfig;
 
     envConfig.plugins = envConfig.plugins || [];
-    //envConfig.plugins.push(new injectViewPlugin())
+    envConfig.plugins.push(new Webpack.IgnorePlugin(/vertx/));
 
     return Object.assign
     (

@@ -1,22 +1,21 @@
 import "dependencies";
 import "surfacer/layout/stack";
 
-import Master from "views/master";
-import View   from "surfacer/view";
-
-import Grid   from "surfacer/data/grid";
+import View from "surfacer/view";
 import {view} from "surfacer/core/decorators";
 
-@view("view-home", require("index.html"), Master)
+import template from "./index.html";
+import style    from "./index.scss";
+
+import Grid from "surfacer/data/grid";
+
+@view("view-home", template, style)
 export default class Home extends View
 {
     constructor()
     {
         super();
-        let grid = new Grid();
-        grid.id = "main-grid";
-        
         if (this.shadowRoot)
-            this.shadowRoot.appendChild(grid);
+            this.shadowRoot.appendChild(new Grid());
     }
 }

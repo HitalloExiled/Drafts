@@ -1,8 +1,10 @@
-﻿import CustomElement from "surfacer/custom-element";
-import Row           from "surfacer/data/row";
-import {component}   from "surfacer/core/decorators";
+﻿import CustomElement from "@surface/core/custom-element";
+import {component}   from "@surface/core/decorators";
+import Row           from "@surface/components/data/row";
 
-@component("surface-layout-grid", require("index.html"))
+import template from "./index.html";
+
+@component("data-grid", template)
 export default class Grid extends CustomElement
 {
     private _rows: Array<Row>;

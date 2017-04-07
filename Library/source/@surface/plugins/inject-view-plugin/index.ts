@@ -1,7 +1,4 @@
-//import * as Path from "path";
-//import * as FS   from "fs";
-
-namespace InjectViewPlugin
+export namespace InjectViewPlugin
 {
     export interface Options
     {

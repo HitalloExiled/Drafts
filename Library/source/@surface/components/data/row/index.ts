@@ -1,8 +1,10 @@
-﻿import CustomElement from "surfacer/custom-element";
-import Column        from "surfacer/data/column";
-import {component}   from "surfacer/core/decorators";
+﻿import CustomElement from "@surface/core/custom-element";
+import {component}   from "@surface/core/decorators";
+import Column        from "@surface/components/data/column";
 
-@component("surface-layout-row", require("index.html"))
+import template from "./index.html";
+
+@component("data-row", template)
 export default class Row extends CustomElement
 {
     private _columns: Array<Column>;

@@ -1,7 +1,9 @@
-﻿import CustomElement from "surfacer/custom-element";
-import {component}   from "surfacer/core/decorators";
+﻿import CustomElement from "@surface/core/custom-element";
+import {component}   from "@surface/core/decorators";
 
-@component("surface-layout-column", require("index.html"))
+import template from "./index.html";
+
+@component("data-column", template)
 export default class Column extends CustomElement
 {
     public constructor()

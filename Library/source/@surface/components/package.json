@@ -1,0 +1,14 @@
+{
+  "name": "@surface/components",
+  "version": "0.0.0",
+  "description": "surface components",
+  "main": "index.js",
+  "dependencies": {
+    "@surface/core": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,4 +1,4 @@
-﻿import CustomElement from "surfacer/custom-element";
+﻿import CustomElement from "@surface/core/custom-element";
 
 abstract class View extends CustomElement
 {

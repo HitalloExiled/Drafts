@@ -5,25 +5,21 @@
   "author": "HitalloExiled",
   "devDependencies": {
     "@types/glob": "^5.0.30",
-    "@types/node": "^7.0.4",
+    "@types/node": "^7.0.12",
     "@types/npm": "^2.0.28",
-    "@types/webcomponents.js": "^0.6.31",
     "cpx": "^1.5.0",
     "glob": "^7.1.1",
-    "npm": "^4.2.0",
-    "rimraf": "^2.5.4",
-    "ts-loader": "^2.0.0",
-    "ts-node": "^2.1.0",
-    "tslib": "^1.5.0",
-    "typescript": "^2.2.0"
+    "npm": "^4.4.4",
+    "rimraf": "^2.6.1",
+    "ts-node": "^3.0.2",
+    "tslib": "^1.6.0",
+    "typescript": "^2.2.2"
   },
-  "dependencies": {
-    "webpack": "^2.2.0"
-  },
+  "dependencies": {},
   "scripts": {
-    "prepublish": "npm run task:build",
-    "task:build": "ts-node ./tasks/build.ts",
-    "task:watch": "ts-node ./tasks/build.ts --watch",
+    "prepublish": "npm run build",
+    "build": "ts-node ./tasks/build.ts",
+    "watch": "ts-node ./tasks/build.ts --watch",
     "clean": "rimraf ./build"
   },
   "repository": {

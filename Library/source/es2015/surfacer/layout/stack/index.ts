@@ -1,12 +1,15 @@
 ﻿import CustomElement from "surfacer/custom-element";
 import {component}   from "surfacer/core/decorators";
 
+import template from "./index.html";
+import style    from "./index.scss";
+
 namespace Stack
 {
     export type Orientation = "vertical"|"horizontal";
 }
 
-@component("layout-stack", require("index.html"))
+@component("layout-stack", template, style)
 class Stack extends CustomElement
 {
     private _orientation: Stack.Orientation;
@@ -23,7 +26,7 @@ class Stack extends CustomElement
     constructor()
     {
         super();
-        CustomElement._observedAttributes = ["orientation", "width", "height", "display"];
+        Stack._observedAttributes = ["orientation", "width", "height", "display"];
     }
 }
 

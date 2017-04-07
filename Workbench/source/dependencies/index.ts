@@ -1,1 +1,2 @@
-﻿import "document-register-element";
+﻿import "webcomponents";
+//import "document-register-element";

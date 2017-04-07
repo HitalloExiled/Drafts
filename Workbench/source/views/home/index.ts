@@ -1,13 +1,15 @@
 import "dependencies";
 import "surfacer/layout/stack";
 
-import Master from "views/master";
 import View   from "surfacer/view";
 
 import Grid   from "surfacer/data/grid";
 import {view} from "surfacer/core/decorators";
 
-@view("view-home", require("index.html"), Master)
+import template from "./index.html";
+import style    from "./index.scss";
+
+@view("view-home", template, style)
 export default class Home extends View
 {
     constructor()

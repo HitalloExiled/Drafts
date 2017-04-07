@@ -73,20 +73,56 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = __extends;
+/* harmony export (immutable) */ __webpack_exports__["b"] = component;
+/* harmony export (immutable) */ __webpack_exports__["a"] = view;
+function component(name, template, style, options) {
+    return (target) => {
+        target.prototype.template = templateParse(template, style);
+        ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+        window.customElements.define(name, target, options);
+    };
+}
+function view(name, template, style, options) {
+    return (target) => {
+        target.prototype.template = templateParse(template, style);
+        ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+        window.customElements.define(name, target, options);
+    };
+}
+function templateParse(template, style) {
+    let templateElement = new DOMParser()
+        .parseFromString(template, "text/html")
+        .querySelector("template");
+    if (style) {
+        let styleElement = document.createElement("style");
+        styleElement.innerHTML = style;
+        templateElement.content.appendChild(styleElement);
+    }
+    return templateElement;
+}
+
+
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export __extends */
 /* unused harmony export __assign */
 /* unused harmony export __rest */
-/* harmony export (immutable) */ __webpack_exports__["b"] = __decorate;
+/* harmony export (immutable) */ __webpack_exports__["a"] = __decorate;
 /* unused harmony export __param */
-/* harmony export (immutable) */ __webpack_exports__["c"] = __metadata;
+/* harmony export (immutable) */ __webpack_exports__["b"] = __metadata;
 /* unused harmony export __awaiter */
 /* unused harmony export __generator */
 /* unused harmony export __exportStar */
@@ -257,157 +293,112 @@ function __asyncValues(o) {
 };
 
 /***/ }),
-/* 1 */
+
+/***/ 2:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["b"] = component;
-/* harmony export (immutable) */ __webpack_exports__["a"] = view;
-function component(name, template, options) {
-    return function (target) {
-        target.prototype.template = templateParse(template);
-        window.customElements.define(name, target, options);
-    };
-}
-function view(name, template, master, options) {
-    return function (target) {
-        target.prototype.template = templateParse(template);
-        window.customElements.define(name, target, options);
-        if (master) {
-            //let masterView = new master();
-            //window.customElements.whenDefined(name).then(() => masterView.appendChild(target.prototype));
-        }
-    };
-}
-function templateParse(template) {
-    return new DOMParser()
-        .parseFromString(template, "text/html")
-        .querySelector("template");
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_surfacer_custom_element__ = __webpack_require__(3);
-
-
-var View = (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](View, _super);
-    function View() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this._isMasterView = false;
-        return _this;
+class CustomElement extends HTMLElement {
+    constructor() {
+        super();
+        this.applyTemplate();
     }
-    Object.defineProperty(View.prototype, "fullName", {
-        get: function () {
-            return this._isMasterView;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return View;
-}(__WEBPACK_IMPORTED_MODULE_1_surfacer_custom_element__["a" /* default */]));
-/* harmony default export */ __webpack_exports__["a"] = View;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
-
-var CustomElement = (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](CustomElement, _super);
-    function CustomElement() {
-        var _this = _super.call(this) || this;
-        _this.applyTemplate();
-        return _this;
+    get template() {
+        return this._template;
     }
-    Object.defineProperty(CustomElement.prototype, "template", {
-        get: function () {
-            return this._template;
-        },
-        set: function (value) {
-            this._template = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(CustomElement, "observedAttributes", {
-        get: function () {
-            return this._observedAttributes;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    CustomElement.prototype.applyTemplate = function () {
+    set template(value) {
+        this._template = value;
+    }
+    static get observedAttributes() {
+        return this._observedAttributes;
+    }
+    applyTemplate() {
+        ShadyCSS.styleElement(this);
         if (this._template)
             this.attachShadow({ mode: "open" }).appendChild(document.importNode(this._template.content, true));
-    };
+    }
     /** Called when the element is created or upgraded */
-    CustomElement.prototype.connectedCallback = function () { };
+    connectedCallback() {
+        //if (this._template)
+        //    this.appendChild(document.importNode(this._template.content, true));
+    }
     /** Called when the element is inserted into a document, including into a shadow tree */
-    CustomElement.prototype.disconnectedCallback = function () { };
+    disconnectedCallback() { }
     /**
      * Called when an attribute is changed, appended, removed, or replaced on the element.
      * Only called for observed attributes.
      */
-    CustomElement.prototype.attributeChangedCallback = function (attributeName, oldValue, newValue, namespace) {
+    attributeChangedCallback(attributeName, oldValue, newValue, namespace) {
         if (attributeName in this)
             this[attributeName] = newValue;
         else if (attributeName in this.style)
             this.style[attributeName] = newValue;
-    };
+    }
     /** Called when the element is adopted into a new document */
-    CustomElement.prototype.adoptedCallback = function (oldDocument, newDocument) { };
-    return CustomElement;
-}(HTMLElement));
+    adoptedCallback(oldDocument, newDocument) { }
+}
 CustomElement._observedAttributes = [];
 /* harmony default export */ __webpack_exports__["a"] = CustomElement;
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html><html xmlns=http://www.w3.org/1999/xhtml><head><meta charset=utf-8><title>Template</title></head><body></body></html>";
-
-/***/ }),
-/* 5 */
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_surfacer_view__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_surfacer_core_decorators__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_surfacer_view__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_surfacer_core_decorators__ = __webpack_require__(0);
 
 
 
-var Master = (function (_super) {
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __extends */](Master, _super);
-    function Master() {
-        return _super.call(this) || this;
+let Master = class Master extends __WEBPACK_IMPORTED_MODULE_1_surfacer_view__["a" /* default */] {
+    constructor() {
+        super();
     }
-    Master.prototype.connectedCallback = function () { };
-    Master.prototype.disconnectedCallback = function () { };
-    Master.prototype.attributeChangedCallback = function (attributeName, oldValue, newValue, namespace) { };
-    Master.prototype.adoptedCallback = function (oldDocument, newDocument) { };
-    return Master;
-}(__WEBPACK_IMPORTED_MODULE_1_surfacer_view__["a" /* default */]));
-Master = __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_surfacer_core_decorators__["a" /* view */])("view-master", __webpack_require__(4)),
-    __WEBPACK_IMPORTED_MODULE_0_tslib__["c" /* __metadata */]("design:paramtypes", [])
+    connectedCallback() { }
+    disconnectedCallback() { }
+    attributeChangedCallback(attributeName, oldValue, newValue, namespace) { }
+    adoptedCallback(oldDocument, newDocument) { }
+};
+Master = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_surfacer_core_decorators__["a" /* view */])("view-master", __webpack_require__(7)),
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [])
 ], Master);
 /* harmony default export */ __webpack_exports__["default"] = Master;
 
 
+/***/ }),
+
+/***/ 3:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_surfacer_custom_element__ = __webpack_require__(2);
+
+class View extends __WEBPACK_IMPORTED_MODULE_0_surfacer_custom_element__["a" /* default */] {
+    constructor() {
+        super(...arguments);
+        this._isMasterView = false;
+    }
+    get fullName() {
+        return this._isMasterView;
+    }
+}
+/* harmony default export */ __webpack_exports__["a"] = View;
+
+
+/***/ }),
+
+/***/ 7:
+/***/ (function(module, exports) {
+
+module.exports = "<!DOCTYPE html>\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n    <head>\r\n        <meta charset=\"utf-8\" />\r\n        <title>Template</title>\r\n    </head>\r\n    <body>\r\n    </body>\r\n</html>";
+
 /***/ })
-/******/ ]);
+
+/******/ });
 });
 //# sourceMappingURL=index.js.map

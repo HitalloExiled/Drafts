@@ -1,6 +1,9 @@
 body {
   background-color: red; }
 
+.working h2 {
+  color: blue; }
+
 body {
   color: white;
   background: url(/resources/c1bdd951d3c473f881c633f1800d4442.png); }

@@ -82,15 +82,16 @@ export default (env: string) =>
                     test: /\.scss$/,
                     use:
                     [
-                        {
-                            loader: "file-loader",
-                            options:
-                            {
-                                name:       "/resources/[hash].css",
-                                outputPath: "./"
-                            }
-                        },
-                        { loader: "extract-loader" },
+                        //{
+                        //    loader: "file-loader",
+                        //    options:
+                        //    {
+                        //        name:       "/resources/[hash].css",
+                        //        outputPath: "./"
+                        //    }
+                        //},
+                        //{ loader: "extract-loader" },                        
+                        { loader: "to-string-loader" },
                         { loader: "css-loader" },
                         { loader: "sass-loader" }
                     ]
@@ -101,12 +102,17 @@ export default (env: string) =>
                     [
                         {   
                             loader: "html-loader",
-                            options: { attrs: ['img:src', 'link:href'] }
-                        },
-                        {
-                            loader: "html-minify-loader",
-                            options: { empty: true }
-                        }
+                            options:
+                            {
+                                attrs: ['img:src', 'link:href'],
+                                interpolate: "require",
+                                minify: true
+                            }
+                        }//,
+                        //{
+                        //    loader: "html-minify-loader",
+                        //    options: { empty: true }
+                        //}
                     ]
                 },
                 {
@@ -120,7 +126,7 @@ export default (env: string) =>
                                 compilerOptions:
                                 {
                                     noEmit: false,
-                                    target: "es5"
+                                    target: "es6"
                                 }
                             },                        
                         }
@@ -133,7 +139,9 @@ export default (env: string) =>
     let envConfig = env == DEV ? devConfig : prodConfig;
 
     envConfig.plugins = envConfig.plugins || [];
-    envConfig.plugins.push(new injectViewPlugin())
+    //envConfig.plugins.push(new Webpack.ProvidePlugin({ Promise: "promise-polyfill" }))
+    envConfig.plugins.push(new injectViewPlugin());
+    envConfig.plugins.push(new Webpack.IgnorePlugin(/vertx/));
 
     return Object.assign
     (

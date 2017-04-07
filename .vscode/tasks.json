@@ -5,58 +5,22 @@
     "tasks":
     [        
         {
-            "taskName":       "build-typescript",
-            "command":        "tsc",            
+            "taskName":       "build",
+            "command":        "cmd",            
             "isShellCommand": true,
-            "args":           ["-p", "${workspaceRoot}/Workbench/tasks"],
+            "args":           ["/c", ".\\Workbench\\node_modules\\.bin\\tsc -p ./Workbench/tasks && node ./Workbench/tasks/build.js --dev"],
             "showOutput":     "always",
             "isBackground":   true,
-            "problemMatcher": "$tsc-watch",
-            "options":
-            {
-                "cwd": "${workspaceRoot}/Workbench/node_modules/.bin"
-            }
+            "problemMatcher": "$tsc-watch"
         },
         {
-            "taskName":       "watch-typescript",
-            "command":        "tsc",            
+            "taskName":       "watch",
+            "command":        "cmd",            
             "isShellCommand": true,
-            "args":           ["-p", "${workspaceRoot}/Workbench/tasks", "-w"],
+            "args":           ["/c", "start .\\Workbench\\node_modules\\.bin\\tsc -p ./Workbench/tasks -w && start node ./Workbench/tasks/build.js  --dev --watch"],
             "showOutput":     "always",
             "isBackground":   true,
-            "problemMatcher": "$tsc-watch",
-            "options":
-            {
-                "cwd": "${workspaceRoot}/Workbench/node_modules/.bin"
-            }
+            "problemMatcher": "$tsc-watch"
         },
-        {
-            "taskName":       "build-webpack",
-            "command":        "node",            
-            "isShellCommand": true,
-            "args":           ["./Workbench/tasks/build.js", "--dev"],
-            "showOutput":     "always",
-            "isBackground":   true
-        },
-        {
-            "taskName":       "watch-webpack",
-            "command":        "node",
-            "isShellCommand": true,
-            "args":           ["./Workbench/tasks/build.js", "--dev", "--watch"],
-            "showOutput":     "always",
-            "isBackground":   true
-        },
-        {
-            "taskName":       "clean",
-            "command":        "ts-node",            
-            "isShellCommand": true,
-            "args":           ["${workspaceRoot}/Workbench/tasks/clean.js"],
-            "showOutput":     "always",
-            "isBackground":   true,
-            "options":
-            {
-                "cwd": "${workspaceRoot}/Workbench/node_modules/.bin"
-            }
-        }
     ]
 }

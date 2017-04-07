@@ -18,6 +18,7 @@
     "sourceMap": true,
     "typeRoots":
     [
+      "./@types",
       "../node_modules/@types",
       "../../Library/source/es2015/surfacer/@types"
     ]

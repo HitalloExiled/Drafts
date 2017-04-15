@@ -15,7 +15,7 @@
     "rimraf": "^2.5.4",
     "rimraf-glob": "0.0.1-security",
     "ts-loader": "^2.0.0",
-    "ts-node": "^2.0.0",
+    "ts-node": "^3.0.2",
     "xregexp": "^3.1.1"
   },
   "dependencies": {},

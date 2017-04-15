@@ -274,3 +274,4 @@ Workbench/source/**/*.js
 Workbench/source/**/*.js.map
 Library/source/**/*.js
 Library/source/**/*.js.map
+*.orig

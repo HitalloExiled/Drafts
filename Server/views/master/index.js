@@ -338,7 +338,7 @@ class CustomElement extends HTMLElement {
     adoptedCallback(oldDocument, newDocument) { }
 }
 CustomElement._observedAttributes = [];
-/* harmony default export */ __webpack_exports__["a"] = CustomElement;
+/* harmony default export */ __webpack_exports__["a"] = (CustomElement);
 
 
 /***/ }),
@@ -349,12 +349,12 @@ CustomElement._observedAttributes = [];
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_surfacer_view__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_surfacer_core_decorators__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__surface_core_view__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__ = __webpack_require__(0);
 
 
 
-let Master = class Master extends __WEBPACK_IMPORTED_MODULE_1_surfacer_view__["a" /* default */] {
+let Master = class Master extends __WEBPACK_IMPORTED_MODULE_1__surface_core_view__["a" /* default */] {
     constructor() {
         super();
     }
@@ -364,10 +364,10 @@ let Master = class Master extends __WEBPACK_IMPORTED_MODULE_1_surfacer_view__["a
     adoptedCallback(oldDocument, newDocument) { }
 };
 Master = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2_surfacer_core_decorators__["a" /* view */])("view-master", __webpack_require__(7)),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__["a" /* view */])("view-master", __webpack_require__(7)),
     __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [])
 ], Master);
-/* harmony default export */ __webpack_exports__["default"] = Master;
+/* harmony default export */ __webpack_exports__["default"] = (Master);
 
 
 /***/ }),
@@ -376,9 +376,9 @@ Master = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_surfacer_custom_element__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__ = __webpack_require__(2);
 
-class View extends __WEBPACK_IMPORTED_MODULE_0_surfacer_custom_element__["a" /* default */] {
+class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a" /* default */] {
     constructor() {
         super(...arguments);
         this._isMasterView = false;
@@ -387,7 +387,7 @@ class View extends __WEBPACK_IMPORTED_MODULE_0_surfacer_custom_element__["a" /* 
         return this._isMasterView;
     }
 }
-/* harmony default export */ __webpack_exports__["a"] = View;
+/* harmony default export */ __webpack_exports__["a"] = (View);
 
 
 /***/ }),

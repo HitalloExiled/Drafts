@@ -1,10 +1,9 @@
 import "dependencies";
-import "surfacer/layout/stack";
+import "@surface/components/layout/stack";
 
-import View   from "surfacer/view";
-
-import Grid   from "surfacer/data/grid";
-import {view} from "surfacer/core/decorators";
+import View   from "@surface/core/view";
+import Grid   from "@surface/components/data/grid";
+import {view} from "@surface/core/decorators";
 
 import template from "./index.html";
 import style    from "./index.scss";

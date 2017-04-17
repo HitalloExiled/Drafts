@@ -11,16 +11,16 @@
     ],
     "module": "es2015",
     "noEmit": true,
+    "sourceMap": true,
     "paths":
     {
-      "*": ["*", "../../Library/source/es2015/*"]
+      "*": ["*", "../../Library/source/*"]
     },
-    "sourceMap": true,
     "typeRoots":
     [
       "./@types",
       "../node_modules/@types",
-      "../../Library/source/es2015/surfacer/@types"
+      "../../Library/source/@surface/@types"
     ]
   },
   "include": ["./"]

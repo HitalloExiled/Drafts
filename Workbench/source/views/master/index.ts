@@ -1,5 +1,5 @@
-import View   from "surfacer/view";
-import {view} from "surfacer/core/decorators";
+import View   from "@surface/core/view";
+import {view} from "@surface/core/decorators";
 
 @view("view-master", require("index.html"))
 export default class Master extends View

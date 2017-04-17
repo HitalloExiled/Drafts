@@ -6,7 +6,7 @@ import * as FS      from "fs";
 import devConfig  from "./development";
 import prodConfig from "./production";
 
-import injectViewPlugin from "../../../Library/source/commonjs/plugins/inject-view-plugin";
+import injectViewPlugin from "../../../Library/source/@surface/plugins/inject-view-plugin";
 
 export default (env: string) =>
 {
@@ -54,7 +54,7 @@ export default (env: string) =>
             [
                 ".",
                 SOURCE,
-                Path.join(LIBRARY, "es2015"),
+                LIBRARY,
                 NODE_MODULES
             ]
         } as Webpack.Resolve,

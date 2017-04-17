@@ -11,10 +11,15 @@
     ],
     "sourceMap": true,
     "module":    "commonjs",
+    "paths":
+    {
+      "*": ["*", "../../Library/source/*"]
+    },
     "typeRoots":
     [
       "./@types",
       "../node_modules/@types"
+      //"../../Library/source/@surface/@types"
     ]
   },
   "include": ["./"]

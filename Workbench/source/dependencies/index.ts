@@ -1,2 +1,2 @@
-﻿import "webcomponents.js";
+﻿//import "webcomponents.js/webcomponents-lite";
 //import "document-register-element";

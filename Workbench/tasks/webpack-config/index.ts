@@ -68,12 +68,7 @@ export default (env: string) =>
                     [
                         {
                             loader: "file-loader",
-                            options:
-                            {
-                                name:       "/resources/[hash].[ext]",
-                                publicPath: "",
-                                outputPath: "./"
-                            }
+                            options: { name: "/resources/[hash].[ext]" }
                         },
                         //{ loader: "url-loader" }
                     ]

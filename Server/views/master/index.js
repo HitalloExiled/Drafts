@@ -16,9 +16,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -87,14 +87,16 @@ return /******/ (function(modules) { // webpackBootstrap
 function component(name, template, style, options) {
     return (target) => {
         target.prototype.template = templateParse(template, style);
-        ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+        if (window["ShadyCSS"])
+            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
         window.customElements.define(name, target, options);
     };
 }
 function view(name, template, style, options) {
     return (target) => {
         target.prototype.template = templateParse(template, style);
-        ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+        if (window["ShadyCSS"])
+            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
         window.customElements.define(name, target, options);
     };
 }
@@ -313,7 +315,8 @@ class CustomElement extends HTMLElement {
         return this._observedAttributes;
     }
     applyTemplate() {
-        ShadyCSS.styleElement(this);
+        if (window["ShadyCSS"])
+            ShadyCSS.styleElement(this);
         if (this._template)
             this.attachShadow({ mode: "open" }).appendChild(document.importNode(this._template.content, true));
     }

@@ -5,7 +5,10 @@ export function component(name: string, template: string, style?: string, option
     return (target: Constructor<CustomElement>) =>
     {        
         target.prototype.template = templateParse(template, style);
-        ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+
+        if (window["ShadyCSS"])
+            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+
         window.customElements.define(name, target, options);
     }
 }
@@ -15,7 +18,10 @@ export function view(name: string, template: string, style?: string, options?: E
     return (target: Constructor<CustomElement>) =>
     {
         target.prototype.template = templateParse(template, style);
-        ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+        
+        if (window["ShadyCSS"])
+            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
+
         window.customElements.define(name, target, options);
     }
 }

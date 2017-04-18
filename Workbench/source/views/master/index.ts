@@ -1,4 +1,4 @@
-import View   from "@surface/core/view";
+import {View} from "@surface/core/view";
 import {view} from "@surface/core/decorators";
 
 @view("view-master", require("index.html"))

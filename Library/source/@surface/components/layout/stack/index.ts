@@ -1,18 +1,21 @@
-﻿import CustomElement from "@surface/core/custom-element";
-import {component}   from "@surface/core/decorators";
+﻿import {CustomElement}      from "@surface/core/custom-element";
+import {component, observe, metadata} from "@surface/core/decorators";
 
 import template from "./index.html";
 import style    from "./index.scss";
 
-namespace Stack
+export namespace Stack
 {
     export type Orientation = "vertical"|"horizontal";
 }
 
+@observe("width", "height", "orientation")
 @component("layout-stack", template, style)
-class Stack extends CustomElement
+export class Stack extends CustomElement
 {
     private _orientation: Stack.Orientation;
+    
+    @metadata
     public get orientation(): Stack.Orientation
     {
         return this._orientation;
@@ -22,12 +25,9 @@ class Stack extends CustomElement
     {
          this._orientation = value;
     }
-
+    
     constructor()
     {
         super();
-        Stack._observedAttributes = ["orientation", "width", "height", "display"];
     }
 }
-
-export default Stack;

@@ -1,11 +1,16 @@
-﻿import CustomElement from "@surface/core/custom-element";
-import {component}   from "@surface/core/decorators";
+﻿import {CustomElement} from "@surface/core/custom-element";
+import {component}     from "@surface/core/decorators";
 
 import template from "./index.html";
 
 @component("data-column", template)
-export default class Column extends CustomElement
+export class Column extends CustomElement
 {
+    public static get observedAttributes(): Array<string>
+    {
+        return [];
+    }
+
     public constructor()
     {
         super();

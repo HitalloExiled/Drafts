@@ -84,21 +84,28 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["b"] = component;
 /* harmony export (immutable) */ __webpack_exports__["a"] = view;
+/* harmony export (immutable) */ __webpack_exports__["d"] = observe;
+/* harmony export (immutable) */ __webpack_exports__["c"] = metadata;
 function component(name, template, style, options) {
     return (target) => {
         target.prototype.template = templateParse(template, style);
         if (window["ShadyCSS"])
             ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
         window.customElements.define(name, target, options);
+        return target;
     };
 }
 function view(name, template, style, options) {
+    return (target) => component(name, template, style, options)(target);
+}
+function observe(...attributes) {
     return (target) => {
-        target.prototype.template = templateParse(template, style);
-        if (window["ShadyCSS"])
-            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
-        window.customElements.define(name, target, options);
+        Object.defineProperty(target, "observedAttributes", { get: () => attributes });
     };
+}
+function metadata(target, key) {
+    var t = Reflect["getMetadata"]("design:type", target, key);
+    console.log(`${key} type: ${t.name}`);
 }
 function templateParse(template, style) {
     let templateElement = new DOMParser()
@@ -301,18 +308,15 @@ function __asyncValues(o) {
 
 "use strict";
 class CustomElement extends HTMLElement {
-    constructor() {
-        super();
-        this.applyTemplate();
-    }
     get template() {
         return this._template;
     }
     set template(value) {
         this._template = value;
     }
-    static get observedAttributes() {
-        return this._observedAttributes;
+    constructor() {
+        super();
+        this.applyTemplate();
     }
     applyTemplate() {
         if (window["ShadyCSS"])
@@ -340,8 +344,8 @@ class CustomElement extends HTMLElement {
     /** Called when the element is adopted into a new document */
     adoptedCallback(oldDocument, newDocument) { }
 }
-CustomElement._observedAttributes = [];
-/* harmony default export */ __webpack_exports__["a"] = (CustomElement);
+/* harmony export (immutable) */ __webpack_exports__["a"] = CustomElement;
+
 
 
 /***/ }),
@@ -357,7 +361,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let Master = class Master extends __WEBPACK_IMPORTED_MODULE_1__surface_core_view__["a" /* default */] {
+let Master = class Master extends __WEBPACK_IMPORTED_MODULE_1__surface_core_view__["a" /* View */] {
     constructor() {
         super();
     }
@@ -381,7 +385,7 @@ Master = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__ = __webpack_require__(2);
 
-class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a" /* default */] {
+class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a" /* CustomElement */] {
     constructor() {
         super(...arguments);
         this._isMasterView = false;
@@ -390,7 +394,8 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a
         return this._isMasterView;
     }
 }
-/* harmony default export */ __webpack_exports__["a"] = (View);
+/* harmony export (immutable) */ __webpack_exports__["a"] = View;
+
 
 
 /***/ }),

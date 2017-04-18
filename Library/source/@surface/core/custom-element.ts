@@ -1,4 +1,4 @@
-﻿abstract class CustomElement extends HTMLElement
+﻿export abstract class CustomElement extends HTMLElement
 {
     private _template: Nullable<HTMLTemplateElement>;
 	public get template(): Nullable<HTMLTemplateElement>
@@ -10,12 +10,6 @@
     {
 		this._template = value;
 	}
-
-    protected static _observedAttributes: Array<string> = [];
-    public static get observedAttributes(): Array<string>
-    {
-        return this._observedAttributes;
-    }
     
     constructor()
     {
@@ -39,7 +33,6 @@
         //    this.appendChild(document.importNode(this._template.content, true));
     }
 
-
     /** Called when the element is inserted into a document, including into a shadow tree */
     public disconnectedCallback(): void
     { }
@@ -60,5 +53,3 @@
     public adoptedCallback(oldDocument: Document, newDocument: Document): void
     { }
 }
-
-export default CustomElement;

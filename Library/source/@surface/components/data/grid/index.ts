@@ -1,11 +1,11 @@
-﻿import CustomElement from "@surface/core/custom-element";
-import {component}   from "@surface/core/decorators";
-import Row           from "@surface/components/data/row";
+﻿import {CustomElement} from "@surface/core/custom-element";
+import {component}     from "@surface/core/decorators";
+import {Row}           from "@surface/components/data/row";
 
 import template from "./index.html";
 
 @component("data-grid", template)
-export default class Grid extends CustomElement
+export class Grid extends CustomElement
 {
     private _rows: Array<Row>;
     public get rows(): Array<Row>

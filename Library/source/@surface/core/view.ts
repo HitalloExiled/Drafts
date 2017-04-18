@@ -1,6 +1,6 @@
-﻿import CustomElement from "@surface/core/custom-element";
+﻿import {CustomElement} from "@surface/core/custom-element";
 
-abstract class View extends CustomElement
+export abstract class View extends CustomElement
 {
     private _isMasterView: boolean = false;
 
@@ -9,5 +9,3 @@ abstract class View extends CustomElement
         return this._isMasterView;
     }
 }
-
-export default View;

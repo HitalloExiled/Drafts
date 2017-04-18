@@ -83,21 +83,28 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["b"] = component;
 /* harmony export (immutable) */ __webpack_exports__["a"] = view;
+/* harmony export (immutable) */ __webpack_exports__["d"] = observe;
+/* harmony export (immutable) */ __webpack_exports__["c"] = metadata;
 function component(name, template, style, options) {
     return (target) => {
         target.prototype.template = templateParse(template, style);
         if (window["ShadyCSS"])
             ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
         window.customElements.define(name, target, options);
+        return target;
     };
 }
 function view(name, template, style, options) {
+    return (target) => component(name, template, style, options)(target);
+}
+function observe(...attributes) {
     return (target) => {
-        target.prototype.template = templateParse(template, style);
-        if (window["ShadyCSS"])
-            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
-        window.customElements.define(name, target, options);
+        Object.defineProperty(target, "observedAttributes", { get: () => attributes });
     };
+}
+function metadata(target, key) {
+    var t = Reflect["getMetadata"]("design:type", target, key);
+    console.log(`${key} type: ${t.name}`);
 }
 function templateParse(template, style) {
     let templateElement = new DOMParser()
@@ -298,18 +305,15 @@ function __asyncValues(o) {
 
 "use strict";
 class CustomElement extends HTMLElement {
-    constructor() {
-        super();
-        this.applyTemplate();
-    }
     get template() {
         return this._template;
     }
     set template(value) {
         this._template = value;
     }
-    static get observedAttributes() {
-        return this._observedAttributes;
+    constructor() {
+        super();
+        this.applyTemplate();
     }
     applyTemplate() {
         if (window["ShadyCSS"])
@@ -337,8 +341,8 @@ class CustomElement extends HTMLElement {
     /** Called when the element is adopted into a new document */
     adoptedCallback(oldDocument, newDocument) { }
 }
-CustomElement._observedAttributes = [];
-/* harmony default export */ __webpack_exports__["a"] = (CustomElement);
+/* harmony export (immutable) */ __webpack_exports__["a"] = CustomElement;
+
 
 
 /***/ }),
@@ -348,7 +352,7 @@ CustomElement._observedAttributes = [];
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__ = __webpack_require__(2);
 
-class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a" /* default */] {
+class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a" /* CustomElement */] {
     constructor() {
         super(...arguments);
         this._isMasterView = false;
@@ -357,7 +361,8 @@ class View extends __WEBPACK_IMPORTED_MODULE_0__surface_core_custom_element__["a
         return this._isMasterView;
     }
 }
-/* harmony default export */ __webpack_exports__["a"] = (View);
+/* harmony export (immutable) */ __webpack_exports__["a"] = View;
+
 
 
 /***/ }),
@@ -479,11 +484,12 @@ module.exports = "<template>\r\n    <img src=\"" + __webpack_require__(5) + "\" 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__index_html__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__index_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__index_html__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Grid; });
 
 
 
 
-let Grid = class Grid extends __WEBPACK_IMPORTED_MODULE_1__surface_core_custom_element__["a" /* default */] {
+let Grid = class Grid extends __WEBPACK_IMPORTED_MODULE_1__surface_core_custom_element__["a" /* CustomElement */] {
     get rows() {
         return this._rows;
     }
@@ -497,7 +503,7 @@ let Grid = class Grid extends __WEBPACK_IMPORTED_MODULE_1__surface_core_custom_e
 Grid = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__["b" /* component */])("data-grid", __WEBPACK_IMPORTED_MODULE_3__index_html___default.a)
 ], Grid);
-/* harmony default export */ __webpack_exports__["a"] = (Grid);
+
 
 
 /***/ }),
@@ -512,15 +518,15 @@ Grid = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__index_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__index_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__index_scss__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__index_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__index_scss__);
+/* unused harmony export Stack */
 
 
 
 
 
-let Stack = Stack_1 = class Stack extends __WEBPACK_IMPORTED_MODULE_1__surface_core_custom_element__["a" /* default */] {
+let Stack = class Stack extends __WEBPACK_IMPORTED_MODULE_1__surface_core_custom_element__["a" /* CustomElement */] {
     constructor() {
         super();
-        Stack_1._observedAttributes = ["orientation", "width", "height", "display"];
     }
     get orientation() {
         return this._orientation;
@@ -529,12 +535,18 @@ let Stack = Stack_1 = class Stack extends __WEBPACK_IMPORTED_MODULE_1__surface_c
         this._orientation = value;
     }
 };
-Stack = Stack_1 = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
+__WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
+    __WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__["c" /* metadata */],
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:type", String),
+    __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [String])
+], Stack.prototype, "orientation", null);
+Stack = __WEBPACK_IMPORTED_MODULE_0_tslib__["a" /* __decorate */]([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__["d" /* observe */])("width", "height", "orientation"),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__["b" /* component */])("layout-stack", __WEBPACK_IMPORTED_MODULE_3__index_html___default.a, __WEBPACK_IMPORTED_MODULE_4__index_scss___default.a),
+    __WEBPACK_IMPORTED_MODULE_2__surface_core_decorators__["c" /* metadata */],
     __WEBPACK_IMPORTED_MODULE_0_tslib__["b" /* __metadata */]("design:paramtypes", [])
 ], Stack);
-/* unused harmony default export */ var _unused_webpack_default_export = (Stack);
-var Stack_1;
+
 
 
 /***/ }),
@@ -2645,10 +2657,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let Home = class Home extends __WEBPACK_IMPORTED_MODULE_3__surface_core_view__["a" /* default */] {
+let Home = class Home extends __WEBPACK_IMPORTED_MODULE_3__surface_core_view__["a" /* View */] {
     constructor() {
         super();
-        let grid = new __WEBPACK_IMPORTED_MODULE_4__surface_components_data_grid__["a" /* default */]();
+        let grid = new __WEBPACK_IMPORTED_MODULE_4__surface_components_data_grid__["a" /* Grid */]();
         grid.id = "main-grid";
         if (this.shadowRoot)
             this.shadowRoot.appendChild(grid);

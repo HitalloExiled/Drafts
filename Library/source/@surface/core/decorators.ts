@@ -1,19 +1,6 @@
-﻿import CustomElement from "@surface/core/custom-element";
+﻿import {CustomElement} from "@surface/core/custom-element";
 
 export function component(name: string, template: string, style?: string, options?: ElementDefinitionOptions): ClassDecorator
-{
-    return (target: Constructor<CustomElement>) =>
-    {        
-        target.prototype.template = templateParse(template, style);
-
-        if (window["ShadyCSS"])
-            ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
-
-        window.customElements.define(name, target, options);
-    }
-}
-
-export function view(name: string, template: string, style?: string, options?: ElementDefinitionOptions): ClassDecorator
 {
     return (target: Constructor<CustomElement>) =>
     {
@@ -23,7 +10,28 @@ export function view(name: string, template: string, style?: string, options?: E
             ShadyCSS.prepareTemplate(target.prototype.template, name, options && options.extends);
 
         window.customElements.define(name, target, options);
+
+        return target;
     }
+}
+
+export function view(name: string, template: string, style?: string, options?: ElementDefinitionOptions): ClassDecorator
+{
+    return (target: Constructor<CustomElement>) => component(name, template, style, options)(target);
+}
+
+export function observe(...attributes: Array<string>): ClassDecorator
+{
+    return (target: Constructor<CustomElement>) =>
+    {
+        Object.defineProperty(target, "observedAttributes", { get: () => attributes } );
+    }
+}
+
+export function metadata(target: any, key?: string)
+{
+    var t = Reflect["getMetadata"]("design:type", target, key);
+    console.log(`${key} type: ${t.name}`);
 }
 
 function templateParse(template: string, style?: string): HTMLTemplateElement

@@ -1,4 +1,4 @@
-﻿import {CustomElement} from "@surface/core/custom-element";
+﻿import { CustomElement } from "@surface/core/custom-element";
 
 export function component(name: string, template: string, style?: string, options?: ElementDefinitionOptions): ClassDecorator
 {

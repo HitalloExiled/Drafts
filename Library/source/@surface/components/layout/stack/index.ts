@@ -1,8 +1,8 @@
-﻿import {CustomElement}      from "@surface/core/custom-element";
-import {component, observe, metadata} from "@surface/core/decorators";
+import { CustomElement }                from "@surface/core/custom-element";
+import { component, observe, metadata } from "@surface/core/decorators";
 
-import template from "./index.html";
-import style    from "./index.scss";
+import template from "index.html";
+import style    from "index.scss";
 
 export namespace Stack
 {

@@ -1,8 +1,8 @@
-﻿import {CustomElement} from "@surface/core/custom-element";
-import {component}     from "@surface/core/decorators";
-import {Row}           from "@surface/components/data/row";
+import { CustomElement } from "@surface/core/custom-element";
+import { component }     from "@surface/core/decorators";
+import { Row }           from "@surface/components/data/row";
 
-import template from "./index.html";
+import template from "index.html";
 
 @component("data-grid", template)
 export class Grid extends CustomElement

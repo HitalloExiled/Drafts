@@ -1,7 +1,10 @@
-import {View} from "@surface/core/view";
-import {view} from "@surface/core/decorators";
+import { View } from "@surface/core/view";
+import { view } from "@surface/core/decorators";
 
-@view("view-master", require("index.html"))
+import template from "index.html";
+import style    from "index.scss";
+
+@view("view-master", template, style)
 export default class Master extends View
 {
     constructor()

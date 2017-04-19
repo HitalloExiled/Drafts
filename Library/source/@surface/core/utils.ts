@@ -12,8 +12,8 @@
             }
             else
             {
-                let [firstLetter, ...rest] = item.split("");
-                item = firstLetter.toUpperCase() + rest.join("").toLowerCase();
+                let [firstLetter, ...remaining] = item.split("");
+                item = firstLetter.toUpperCase() + remaining.join("").toLowerCase();
             }
             
             return item;

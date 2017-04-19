@@ -1,7 +1,7 @@
-﻿import {CustomElement} from "@surface/core/custom-element";
-import {component}     from "@surface/core/decorators";
+import { CustomElement } from "@surface/core/custom-element";
+import { component }     from "@surface/core/decorators";
 
-import template from "./index.html";
+import template from "index.html";
 
 @component("data-column", template)
 export class Column extends CustomElement
